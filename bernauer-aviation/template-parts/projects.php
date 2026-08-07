@@ -43,12 +43,12 @@ $tags    = array( 'Aircraft Interior', 'Premium Leather', 'Precision Crafted' );
 			<div class="project__nav">
 				<button type="button" class="project__nav-btn" aria-label="<?php esc_attr_e( 'Previous project', 'bernauer-aviation' ); ?>">
 					<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-						<path d="M20 7 11 16l9 9" stroke="#09090b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M20 7 11 16l9 9" stroke="#09090b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
 					</svg>
 				</button>
 				<button type="button" class="project__nav-btn" aria-label="<?php esc_attr_e( 'Next project', 'bernauer-aviation' ); ?>">
 					<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-						<path d="M12 7l9 9-9 9" stroke="#09090b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M12 7l9 9-9 9" stroke="#09090b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
 					</svg>
 				</button>
 			</div>
