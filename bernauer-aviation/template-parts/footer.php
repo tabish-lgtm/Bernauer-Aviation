@@ -11,7 +11,8 @@ $phone         = get_theme_mod( 'bernauer_phone', '+49 7742 927 88 30' );
 $phone2        = get_theme_mod( 'bernauer_phone2', '+41 43 508 02 26' );
 $email         = get_theme_mod( 'bernauer_email', 'info@bernauer.design' );
 $address       = get_theme_mod( 'bernauer_address', "Weberstraße 10a\n79801 Hohentengen-Lienheim\nDeutschland" );
-$map_url       = get_theme_mod( 'bernauer_map', 'https://maps.google.com/maps?ll=47.565653,8.44304&z=13&t=m&hl=de&gl=SK&mapclient=embed&q=bernauer%20design' );
+$map_url       = get_theme_mod( 'bernauer_map', 'https://www.google.com/maps/place/Bernauer+Design+-+Polster+%26+Taschen+%22Swiss+Made%22/@47.565653,8.44304,13z/data=!4m6!3m5!1s0x47907786b3c3375d:0x9a4b4dd068a2d55b!8m2!3d47.5749143!4d8.5111897!16s%2Fg%2F11w9877cr4?hl=de' );
+$map_embed     = get_theme_mod( 'bernauer_map_embed', 'https://maps.google.com/maps?q=Bernauer+Design+-+Polster+%26+Taschen+Swiss+Made&hl=de&z=15&output=embed' );
 $copyright     = get_theme_mod( 'bernauer_copyright', '© 2026 Bernauer Aviation, Inc.' );
 
 $links = array(
@@ -75,7 +76,18 @@ $phone_href = 'tel:' . preg_replace( '/[^0-9+]/', '', $phone );
 			</div>
 		</div>
 		<div class="footer__image">
-			<?php bernauer_image( 'contact', 'footer__img' ); ?>
+			<?php if ( $map_embed ) : ?>
+				<iframe
+					class="footer__map"
+					src="<?php echo esc_url( $map_embed ); ?>"
+					title="<?php esc_attr_e( 'Bernauer Design location map', 'bernauer-aviation' ); ?>"
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+					allowfullscreen
+				></iframe>
+			<?php else : ?>
+				<?php bernauer_image( 'contact', 'footer__img' ); ?>
+			<?php endif; ?>
 		</div>
 	</div>
 

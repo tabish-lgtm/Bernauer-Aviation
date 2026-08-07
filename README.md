@@ -51,7 +51,11 @@ Real contact details are pre-filled as defaults:
 | `gallery_2` / `gallery_3` | Gallery stacked | `33:1139/1140` | 444×272 |
 | `gallery_4` | Gallery full width | `33:1141` | 1312×568 |
 | `craftsmen_1`…`craftsmen_3` | Craftsmen strip | `33:1147/1148/1154` | 1115×680 |
-| `contact` | Footer contact image | `33:1174` | 574×543 |
+| `contact` | Footer image (fallback when no map embed) | `33:1174` | 574×543 |
+
+The footer's right panel embeds a **Google Map** of the Bernauer Design
+location by default (Customizer → *Bernauer Content* → *Map embed URL*). Clear
+that field to fall back to the `contact` image slot instead.
 
 ## Design system
 
