@@ -27,8 +27,14 @@ builder, no build step, no external requests.
 Everything is editable in **Appearance → Customize** — no code required:
 
 - **Bernauer Content** — hero title/description, contact title/description,
-  phone numbers, email, address, map URL, copyright, social links, footer links,
-  and the craftsmen video URL.
+  phone numbers, email, address, map URL, copyright, footer links, and:
+  - **Social links** — Instagram (`instagram.com/bernauer.design`) and Facebook
+    (`facebook.com/bernauer.design`) are pre-filled; LinkedIn is optional.
+  - **Craftsmen videos** — three URL fields. Each accepts a self-hosted file
+    (`.mp4`/`.webm` — uploaded to the Media Library) **or** a YouTube/Vimeo
+    link. A poster (the matching `craftsmen_*` image slot) shows with a play
+    button; YouTube/Vimeo load click-to-play (no third-party requests until the
+    visitor opts in). Empty video fields fall back to the poster image alone.
 - **Bernauer Images** — one upload control per image slot (see the map below).
   Empty slots show an on-palette SVG placeholder.
 

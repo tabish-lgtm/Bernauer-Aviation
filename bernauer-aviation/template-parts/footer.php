@@ -101,7 +101,7 @@ $phone_href = 'tel:' . preg_replace( '/[^0-9+]/', '', $phone );
 		</nav>
 
 		<div class="footer__social">
-			<a href="<?php echo esc_url( get_theme_mod( 'bernauer_instagram', '#' ) ); ?>" aria-label="Instagram">
+			<a href="<?php echo esc_url( get_theme_mod( 'bernauer_instagram', 'https://www.instagram.com/bernauer.design/' ) ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<rect x="2.75" y="2.75" width="18.5" height="18.5" rx="5.25" stroke="#d4d4d8" stroke-width="1.6"/>
 					<circle cx="12" cy="12" r="4.25" stroke="#d4d4d8" stroke-width="1.6"/>
@@ -113,7 +113,7 @@ $phone_href = 'tel:' . preg_replace( '/[^0-9+]/', '', $phone );
 					<path d="M4.98 3.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3.3 9h3.36v11H3.3V9Zm5.5 0h3.22v1.5h.05c.45-.85 1.55-1.75 3.2-1.75 3.42 0 4.05 2.25 4.05 5.18V20h-3.36v-4.9c0-1.17-.02-2.67-1.63-2.67-1.63 0-1.88 1.27-1.88 2.59V20H8.8V9Z" fill="#d4d4d8"/>
 				</svg>
 			</a>
-			<a href="<?php echo esc_url( get_theme_mod( 'bernauer_facebook', '#' ) ); ?>" aria-label="Facebook">
+			<a href="<?php echo esc_url( get_theme_mod( 'bernauer_facebook', 'https://www.facebook.com/bernauer.design/' ) ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.24 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.78-3.91 1.09 0 2.24.2 2.24.2v2.48h-1.26c-1.24 0-1.63.78-1.63 1.57v1.87h2.78l-.44 2.91h-2.34V22C18.34 21.24 22 17.08 22 12.06Z" fill="#d4d4d8"/>
 				</svg>

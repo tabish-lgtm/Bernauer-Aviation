@@ -619,6 +619,16 @@ button { font-family: inherit; cursor: pointer; }
   scroll-snap-align: center;
 }
 .craftsmen__img { width: 100%; height: 100%; object-fit: cover; }
+.craftsmen__video { width: 100%; height: 100%; object-fit: cover; background: var(--zinc-100); }
+.craftsmen__embed {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--zinc-100);
+}
+.craftsmen__iframe { width: 100%; height: 100%; border: 0; display: block; }
+.craftsmen__play.is-hidden { display: none; }
 .craftsmen__play {
   position: absolute;
   inset: 0;
