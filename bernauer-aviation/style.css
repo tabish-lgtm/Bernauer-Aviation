@@ -1,0 +1,231 @@
+/*
+Theme Name: Bernauer Aviation
+Theme URI: https://bernauer-aviation.example
+Author: Bernauer Aviation
+Author URI: https://bernauer-aviation.example
+Description: Pixel-perfect one-page marketing theme for Bernauer Aviation — luxury aircraft interior upholstery. Built from the Figma design with a self-hosted Geist type system and an editorial Zinc/Stone palette.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.5
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: bernauer-aviation
+*/
+
+/* =========================================================================
+   1. FONTS — self-hosted Geist (woff2)
+   ========================================================================= */
+@font-face {
+  font-family: "Geist";
+  src: url("assets/fonts/Geist-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist";
+  src: url("assets/fonts/Geist-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist";
+  src: url("assets/fonts/Geist-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist";
+  src: url("assets/fonts/Geist-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================================================================
+   2. DESIGN TOKENS — mapped 1:1 from the Figma variables
+   ========================================================================= */
+:root {
+  /* Palette */
+  --zinc-950: #09090b;
+  --zinc-800: #27272a;
+  --zinc-600: #52525b;
+  --zinc-500: #71717a;
+  --zinc-400: #a1a1aa;
+  --zinc-300: #d4d4d8;
+  --zinc-200: #e4e4e7;
+  --zinc-100: #f4f4f5;
+  --zinc-50:  #fafafa;
+  --stone-800: #292524;
+  --stone-400: #a6a09b;
+  --dark:      #28303f;
+  --white:     #ffffff;
+
+  /* Semantic roles */
+  --color-text:        var(--zinc-950);
+  --color-text-muted:  var(--zinc-600);
+  --color-text-subtle: var(--zinc-500);
+  --color-border:      var(--zinc-200);
+  --color-surface:     var(--zinc-50);
+  --color-surface-alt: var(--zinc-100);
+  --color-bg:          var(--white);
+
+  /* Type */
+  --font-sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Layout — 1440 canvas, 64 gutters, 1312 content */
+  --canvas: 1440px;
+  --content: 1312px;
+  --gutter: 64px;
+}
+
+/* =========================================================================
+   3. RESET + BASE
+   ========================================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.4;
+}
+img, svg, video { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+p { margin: 0; }
+h1, h2, h3, h4, h5, h6 { margin: 0; font-weight: 500; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+button { font-family: inherit; cursor: pointer; }
+
+/* =========================================================================
+   4. LAYOUT PRIMITIVES
+   ========================================================================= */
+.site {
+  width: 100%;
+  max-width: var(--canvas);
+  margin-inline: auto;
+  background: var(--color-bg);
+  overflow: clip;
+}
+.container {
+  padding-inline: var(--gutter);
+}
+.section {
+  padding-inline: var(--gutter);
+}
+
+/* Section header shared pattern (title kicker + description on left, subtitle on right) */
+.section-header {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.section-header__left { max-width: 561px; }
+.section-title {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+.section-description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+.section-subtitle {
+  max-width: 455px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.375;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+/* Utility */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* =========================================================================
+   SECTION STYLES appended below as each section is built
+   ========================================================================= */
+
+/* --- Shared editable image --- */
+.ba-img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* --- Navbar --- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px var(--gutter);
+}
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 36px;
+}
+.navbar__mark { display: flex; width: 25.324px; height: 36.404px; }
+.navbar__mark svg { display: block; }
+.navbar__wordmark { display: flex; flex-direction: column; gap: 1px; line-height: 1.4; }
+.navbar__name {
+  font-weight: 500;
+  font-size: 14.561px;
+  letter-spacing: -0.1456px;
+  color: var(--zinc-950);
+}
+.navbar__tagline {
+  font-weight: 400;
+  font-size: 10.921px;
+  letter-spacing: 1.3105px;
+  text-transform: uppercase;
+  color: var(--zinc-600);
+}
+/* WP custom-logo fallback sizing */
+.navbar__logo .custom-logo { width: auto; height: 36px; }
+.navbar__social { display: flex; align-items: center; gap: 12px; }
+.navbar__icon { display: flex; width: 24px; height: 24px; }
+.navbar__icon svg { display: block; }
+
+/* --- Hero --- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+  padding: 52px var(--gutter) 132px;
+}
+.hero__content { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+.hero__title {
+  max-width: 634px;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: -1.92px;
+  color: var(--zinc-950);
+  word-break: break-word;
+}
+.hero__desc {
+  max-width: 499px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--zinc-600);
+}
+.hero__media {
+  width: 100%;
+  aspect-ratio: 1312 / 600;
+  overflow: hidden;
+}
+.hero__img { width: 100%; height: 100%; object-fit: cover; }
