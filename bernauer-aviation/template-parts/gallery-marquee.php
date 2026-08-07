@@ -1,9 +1,11 @@
 <?php
 /**
- * Craftsmen — centered header + full-bleed horizontal media strip.
- * Each item can carry a video (self-hosted file or YouTube/Vimeo). When a
- * video is set the item shows a poster + play button that starts playback;
- * otherwise it shows the poster image alone.
+ * Craftsmen — centered header + full-bleed horizontal video strip.
+ *
+ * Ships with five bundled craftsmanship clips (assets/videos). Each item can be
+ * overridden per-slot in the Customizer with a self-hosted file or a
+ * YouTube/Vimeo link. A poster (the matching craftsmen_* image slot, if
+ * uploaded) shows with a play button; otherwise the video's first frame is used.
  *
  * @package Bernauer_Aviation
  */
@@ -27,10 +29,13 @@ function bernauer_video_embed( $url ) {
 	return '';
 }
 
+// Bundled defaults: file in assets/videos + matching optional poster slot.
 $items = array(
-	array( 'slot' => 'craftsmen_1', 'video' => get_theme_mod( 'bernauer_video_1', '' ) ),
-	array( 'slot' => 'craftsmen_2', 'video' => get_theme_mod( 'bernauer_video_2', '' ) ),
-	array( 'slot' => 'craftsmen_3', 'video' => get_theme_mod( 'bernauer_video_3', '' ) ),
+	array( 'mod' => 'bernauer_video_1', 'file' => 'process-1.mp4',  'slot' => 'craftsmen_1' ),
+	array( 'mod' => 'bernauer_video_2', 'file' => 'process-3.mp4',  'slot' => 'craftsmen_2' ),
+	array( 'mod' => 'bernauer_video_3', 'file' => 'panels.mp4',     'slot' => 'craftsmen_3' ),
+	array( 'mod' => 'bernauer_video_4', 'file' => 'process-5.mp4',  'slot' => 'craftsmen_4' ),
+	array( 'mod' => 'bernauer_video_5', 'file' => 'process-10.mp4', 'slot' => 'craftsmen_5' ),
 );
 ?>
 <section class="section craftsmen" id="craftsmen">
@@ -39,29 +44,28 @@ $items = array(
 		<h2 class="sec-header__title craftsmen__title">The Experts Behind Every Exceptional Aircraft Interior</h2>
 	</header>
 
-	<div class="craftsmen__track" tabindex="0" aria-label="<?php esc_attr_e( 'Craftsmen gallery — scroll horizontally', 'bernauer-aviation' ); ?>">
+	<div class="craftsmen__track" tabindex="0" aria-label="<?php esc_attr_e( 'Craftsmen videos — scroll horizontally', 'bernauer-aviation' ); ?>">
 		<?php foreach ( $items as $item ) :
-			$poster = bernauer_image_src( $item['slot'] );
-			$video  = $item['video'];
-			$embed  = $video ? bernauer_video_embed( $video ) : '';
-			$is_file = $video && ! $embed;
+			$override = get_theme_mod( $item['mod'], '' );
+			$video    = $override ? $override : get_theme_file_uri( 'assets/videos/' . $item['file'] );
+			$embed    = $override ? bernauer_video_embed( $override ) : '';
+			$poster   = bernauer_image_src( $item['slot'] );
+			$poster_url = $poster['is_placeholder'] ? '' : $poster['url'];
 			?>
-			<div class="craftsmen__item<?php echo $video ? ' craftsmen__item--video' : ''; ?>">
-				<?php if ( $is_file ) : ?>
-					<video class="craftsmen__video" poster="<?php echo esc_url( $poster['url'] ); ?>" preload="none" playsinline controls>
-						<source src="<?php echo esc_url( $video ); ?>">
-					</video>
-					<button type="button" class="craftsmen__play" data-video-play aria-label="<?php esc_attr_e( 'Play video', 'bernauer-aviation' ); ?>">
-						<?php echo bernauer_play_button(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					</button>
-				<?php elseif ( $embed ) : ?>
-					<div class="craftsmen__embed" data-embed="<?php echo esc_url( $embed ); ?>" style="background-image:url('<?php echo esc_url( $poster['url'] ); ?>')">
+			<div class="craftsmen__item craftsmen__item--video">
+				<?php if ( $embed ) : ?>
+					<div class="craftsmen__embed" data-embed="<?php echo esc_url( $embed ); ?>"<?php echo $poster_url ? ' style="background-image:url(\'' . esc_url( $poster_url ) . '\')"' : ''; ?>>
 						<button type="button" class="craftsmen__play" data-embed-play aria-label="<?php esc_attr_e( 'Play video', 'bernauer-aviation' ); ?>">
 							<?php echo bernauer_play_button(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						</button>
 					</div>
 				<?php else : ?>
-					<?php bernauer_image( $item['slot'], 'craftsmen__img' ); ?>
+					<video class="craftsmen__video" preload="metadata" playsinline controls<?php echo $poster_url ? ' poster="' . esc_url( $poster_url ) . '"' : ''; ?>>
+						<source src="<?php echo esc_url( $video ); ?>" type="video/mp4">
+					</video>
+					<button type="button" class="craftsmen__play" data-video-play aria-label="<?php esc_attr_e( 'Play video', 'bernauer-aviation' ); ?>">
+						<?php echo bernauer_play_button(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					</button>
 				<?php endif; ?>
 			</div>
 		<?php endforeach; ?>

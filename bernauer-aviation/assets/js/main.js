@@ -16,6 +16,14 @@
 			});
 		}
 
+		// Craftsmen: paint the first frame as the thumbnail (no poster uploaded).
+		document.querySelectorAll(".craftsmen__video").forEach(function (video) {
+			if (video.getAttribute("poster")) return;
+			video.addEventListener("loadedmetadata", function () {
+				try { if (video.currentTime === 0) { video.currentTime = 0.05; } } catch (e) {}
+			}, { once: true });
+		});
+
 		// Craftsmen: self-hosted <video> — play button starts playback then hides.
 		document.querySelectorAll("[data-video-play]").forEach(function (btn) {
 			btn.addEventListener("click", function () {

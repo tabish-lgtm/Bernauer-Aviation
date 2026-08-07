@@ -45,9 +45,11 @@ function bernauer_image_slots() {
 		'gallery_3'       => array( 'label' => 'Gallery — right bottom', 'w' => 444, 'h' => 272, 'node' => '33:1140' ),
 		'gallery_4'       => array( 'label' => 'Gallery — full width', 'w' => 1312, 'h' => 568, 'node' => '33:1141' ),
 
-		'craftsmen_1'     => array( 'label' => 'Craftsmen — 1', 'w' => 1115, 'h' => 680, 'node' => '33:1147' ),
-		'craftsmen_2'     => array( 'label' => 'Craftsmen — 2 (video)', 'w' => 1115, 'h' => 680, 'node' => '33:1148' ),
-		'craftsmen_3'     => array( 'label' => 'Craftsmen — 3', 'w' => 1115, 'h' => 680, 'node' => '33:1154' ),
+		'craftsmen_1'     => array( 'label' => 'Craftsmen video 1 — poster (optional)', 'w' => 1115, 'h' => 680, 'node' => '33:1147' ),
+		'craftsmen_2'     => array( 'label' => 'Craftsmen video 2 — poster (optional)', 'w' => 1115, 'h' => 680, 'node' => '33:1148' ),
+		'craftsmen_3'     => array( 'label' => 'Craftsmen video 3 — poster (optional)', 'w' => 1115, 'h' => 680, 'node' => '33:1154' ),
+		'craftsmen_4'     => array( 'label' => 'Craftsmen video 4 — poster (optional)', 'w' => 1115, 'h' => 680, 'node' => '' ),
+		'craftsmen_5'     => array( 'label' => 'Craftsmen video 5 — poster (optional)', 'w' => 1115, 'h' => 680, 'node' => '' ),
 
 		'contact'         => array( 'label' => 'Contact — image', 'w' => 574, 'h' => 543, 'node' => '33:1174' ),
 	);

@@ -30,11 +30,27 @@ Everything is editable in **Appearance → Customize** — no code required:
   phone numbers, email, address, map URL, copyright, footer links, and:
   - **Social links** — Instagram (`instagram.com/bernauer.design`) and Facebook
     (`facebook.com/bernauer.design`) are pre-filled; LinkedIn is optional.
-  - **Craftsmen videos** — three URL fields. Each accepts a self-hosted file
-    (`.mp4`/`.webm` — uploaded to the Media Library) **or** a YouTube/Vimeo
-    link. A poster (the matching `craftsmen_*` image slot) shows with a play
-    button; YouTube/Vimeo load click-to-play (no third-party requests until the
-    visitor opts in). Empty video fields fall back to the poster image alone.
+  - **Craftsmen videos** — the strip ships with **five bundled clips**
+    (`assets/videos/`: `process-1`, `process-3`, `panels`, `process-5`,
+    `process-10`). Each of the five slots has a URL field that **overrides** the
+    bundled clip with your own self-hosted file (`.mp4`/`.webm`) or a
+    YouTube/Vimeo link. A play button plays the video inline; YouTube/Vimeo use
+    click-to-load (no third-party requests until the visitor opts in). Upload an
+    optional poster per slot under *Bernauer Images*; otherwise the video's
+    first frame is used as the thumbnail.
+
+### A note on the bundled videos & zip size
+
+The five clips are ~61 MB, so the built theme zip is ~62 MB — larger than some
+hosts' default WordPress upload limit. Options:
+
+- Install via **SFTP/git** instead of the zip uploader, or raise
+  `upload_max_filesize` / `post_max_size` on the server; **or**
+- For production, upload the clips to the **Media Library**, paste their URLs
+  into the five *Craftsmen video* fields, and delete `assets/videos/` to slim
+  the theme.
+
+(The bundled videos are H.264 MP4 and play in all modern browsers.)
 - **Bernauer Images** — one upload control per image slot (see the map below).
   Empty slots show an on-palette SVG placeholder.
 

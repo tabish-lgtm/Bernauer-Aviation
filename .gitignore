@@ -6,3 +6,4 @@ Thumbs.db
 # Node (only used locally to fetch fonts)
 node_modules/
 .preview/
+dist/
