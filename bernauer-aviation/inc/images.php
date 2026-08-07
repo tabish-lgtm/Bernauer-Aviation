@@ -26,24 +26,24 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function bernauer_image_slots() {
 	return array(
-		'hero'            => array( 'label' => 'Hero — cabin', 'w' => 1312, 'h' => 600, 'node' => '33:975' ),
+		'hero'            => array( 'label' => 'Hero — cabin', 'w' => 1312, 'h' => 600, 'node' => '33:975', 'file' => 'hero-cabin.jpg' ),
 
-		'wwd_1'           => array( 'label' => 'What we do — Cabin Seating', 'w' => 644, 'h' => 424, 'node' => '33:985' ),
-		'wwd_2'           => array( 'label' => 'What we do — Cabin Panels & Trim', 'w' => 644, 'h' => 424, 'node' => '33:990' ),
-		'wwd_3'           => array( 'label' => 'What we do — Leather Restoration', 'w' => 644, 'h' => 424, 'node' => '33:996' ),
-		'wwd_4'           => array( 'label' => 'What we do — Custom Cabin Refurbishment', 'w' => 644, 'h' => 424, 'node' => '33:1001' ),
+		'wwd_1'           => array( 'label' => 'What we do — Cabin Seating', 'w' => 644, 'h' => 424, 'node' => '33:985', 'file' => 'cabin-seating.jpg' ),
+		'wwd_2'           => array( 'label' => 'What we do — Cabin Panels & Trim', 'w' => 644, 'h' => 424, 'node' => '33:990', 'file' => 'cabin-panels.jpg' ),
+		'wwd_3'           => array( 'label' => 'What we do — Leather Restoration', 'w' => 644, 'h' => 424, 'node' => '33:996', 'file' => 'leather-restoration.jpg' ),
+		'wwd_4'           => array( 'label' => 'What we do — Custom Cabin Refurbishment', 'w' => 644, 'h' => 424, 'node' => '33:1001', 'file' => 'cabin-refurbishment.jpg' ),
 
-		'projects_featured' => array( 'label' => 'Projects — featured', 'w' => 1312, 'h' => 600, 'node' => '33:1029' ),
+		'projects_featured' => array( 'label' => 'Projects — featured', 'w' => 1312, 'h' => 600, 'node' => '33:1029', 'file' => 'cabin-seating.jpg' ),
 
 		'materials_1'     => array( 'label' => 'Materials — Full Grain Leather', 'w' => 344, 'h' => 400, 'node' => '33:1120' ),
 		'materials_2'     => array( 'label' => 'Materials — Alcantara', 'w' => 344, 'h' => 400, 'node' => '33:1123' ),
 		'materials_3'     => array( 'label' => 'Materials — Ultraleather', 'w' => 344, 'h' => 400, 'node' => '33:1126' ),
 		'materials_4'     => array( 'label' => 'Materials — Wool Fabric', 'w' => 344, 'h' => 400, 'node' => '33:1129' ),
 
-		'gallery_1'       => array( 'label' => 'Gallery — large left', 'w' => 844, 'h' => 568, 'node' => '33:1137' ),
-		'gallery_2'       => array( 'label' => 'Gallery — right top', 'w' => 444, 'h' => 272, 'node' => '33:1139' ),
-		'gallery_3'       => array( 'label' => 'Gallery — right bottom', 'w' => 444, 'h' => 272, 'node' => '33:1140' ),
-		'gallery_4'       => array( 'label' => 'Gallery — full width', 'w' => 1312, 'h' => 568, 'node' => '33:1141' ),
+		'gallery_1'       => array( 'label' => 'Gallery — large left', 'w' => 844, 'h' => 568, 'node' => '33:1137', 'file' => 'hero-cabin.jpg' ),
+		'gallery_2'       => array( 'label' => 'Gallery — right top', 'w' => 444, 'h' => 272, 'node' => '33:1139', 'file' => 'cabin-panels.jpg' ),
+		'gallery_3'       => array( 'label' => 'Gallery — right bottom', 'w' => 444, 'h' => 272, 'node' => '33:1140', 'file' => 'cabin-refurbishment.jpg' ),
+		'gallery_4'       => array( 'label' => 'Gallery — full width', 'w' => 1312, 'h' => 568, 'node' => '33:1141', 'file' => 'cabin-seating.jpg' ),
 
 		'craftsmen_1'     => array( 'label' => 'Craftsmen video 1 — poster (optional)', 'w' => 1115, 'h' => 680, 'node' => '33:1147' ),
 		'craftsmen_2'     => array( 'label' => 'Craftsmen video 2 — poster (optional)', 'w' => 1115, 'h' => 680, 'node' => '33:1148' ),
@@ -91,6 +91,17 @@ function bernauer_image_src( $key ) {
 	if ( $mod ) {
 		return array(
 			'url'            => esc_url( $mod ),
+			'w'              => (int) $slot['w'],
+			'h'              => (int) $slot['h'],
+			'label'          => $slot['label'],
+			'is_placeholder' => false,
+		);
+	}
+
+	// Bundled default shipped with the theme (assets/images), if present.
+	if ( ! empty( $slot['file'] ) && file_exists( get_theme_file_path( 'assets/images/' . $slot['file'] ) ) ) {
+		return array(
+			'url'            => esc_url( get_theme_file_uri( 'assets/images/' . $slot['file'] ) ),
 			'w'              => (int) $slot['w'],
 			'h'              => (int) $slot['h'],
 			'label'          => $slot['label'],
