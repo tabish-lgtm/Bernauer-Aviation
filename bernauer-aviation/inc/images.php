@@ -28,13 +28,12 @@ function bernauer_image_slots() {
 	return array(
 		'hero'            => array( 'label' => 'Hero — cabin', 'w' => 1312, 'h' => 600, 'node' => '33:975' ),
 
-		'wwd_1'           => array( 'label' => 'What we do — large left', 'w' => 644, 'h' => 424, 'node' => '33:985' ),
-		'wwd_2'           => array( 'label' => 'What we do — right top', 'w' => 644, 'h' => 424, 'node' => '33:990' ),
-		'wwd_3'           => array( 'label' => 'What we do — wide bottom', 'w' => 1312, 'h' => 424, 'node' => '33:1000' ),
+		'wwd_1'           => array( 'label' => 'What we do — Cabin Seating', 'w' => 644, 'h' => 424, 'node' => '33:985' ),
+		'wwd_2'           => array( 'label' => 'What we do — Cabin Panels & Trim', 'w' => 644, 'h' => 424, 'node' => '33:990' ),
+		'wwd_3'           => array( 'label' => 'What we do — Leather Restoration', 'w' => 644, 'h' => 424, 'node' => '33:996' ),
+		'wwd_4'           => array( 'label' => 'What we do — Custom Cabin Refurbishment', 'w' => 644, 'h' => 424, 'node' => '33:1001' ),
 
-		'proj_1'          => array( 'label' => 'Projects — 1', 'w' => 644, 'h' => 400, 'node' => '33:1015' ),
-		'proj_2'          => array( 'label' => 'Projects — 2', 'w' => 644, 'h' => 400, 'node' => '33:1025' ),
-		'proj_3'          => array( 'label' => 'Projects — 3', 'w' => 644, 'h' => 400, 'node' => '33:1035' ),
+		'projects_featured' => array( 'label' => 'Projects — featured', 'w' => 1312, 'h' => 600, 'node' => '33:1029' ),
 
 		'materials_1'     => array( 'label' => 'Materials — left', 'w' => 644, 'h' => 448, 'node' => '33:1120' ),
 		'materials_2'     => array( 'label' => 'Materials — right', 'w' => 644, 'h' => 448, 'node' => '33:1125' ),
