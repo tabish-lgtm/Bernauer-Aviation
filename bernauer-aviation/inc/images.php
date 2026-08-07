@@ -35,19 +35,21 @@ function bernauer_image_slots() {
 
 		'projects_featured' => array( 'label' => 'Projects — featured', 'w' => 1312, 'h' => 600, 'node' => '33:1029' ),
 
-		'materials_1'     => array( 'label' => 'Materials — left', 'w' => 644, 'h' => 448, 'node' => '33:1120' ),
-		'materials_2'     => array( 'label' => 'Materials — right', 'w' => 644, 'h' => 448, 'node' => '33:1125' ),
+		'materials_1'     => array( 'label' => 'Materials — Full Grain Leather', 'w' => 344, 'h' => 400, 'node' => '33:1120' ),
+		'materials_2'     => array( 'label' => 'Materials — Alcantara', 'w' => 344, 'h' => 400, 'node' => '33:1123' ),
+		'materials_3'     => array( 'label' => 'Materials — Ultraleather', 'w' => 344, 'h' => 400, 'node' => '33:1126' ),
+		'materials_4'     => array( 'label' => 'Materials — Wool Fabric', 'w' => 344, 'h' => 400, 'node' => '33:1129' ),
 
-		'gallery_1'       => array( 'label' => 'Gallery — 1', 'w' => 644, 'h' => 552, 'node' => '33:1136' ),
-		'gallery_2'       => array( 'label' => 'Gallery — 2', 'w' => 644, 'h' => 552, 'node' => '33:1138' ),
+		'gallery_1'       => array( 'label' => 'Gallery — large left', 'w' => 844, 'h' => 568, 'node' => '33:1137' ),
+		'gallery_2'       => array( 'label' => 'Gallery — right top', 'w' => 444, 'h' => 272, 'node' => '33:1139' ),
+		'gallery_3'       => array( 'label' => 'Gallery — right bottom', 'w' => 444, 'h' => 272, 'node' => '33:1140' ),
+		'gallery_4'       => array( 'label' => 'Gallery — full width', 'w' => 1312, 'h' => 568, 'node' => '33:1141' ),
 
-		'marquee_1'       => array( 'label' => 'Marquee — 1', 'w' => 520, 'h' => 680, 'node' => '33:1147' ),
-		'marquee_2'       => array( 'label' => 'Marquee — 2', 'w' => 520, 'h' => 680, 'node' => '33:1148' ),
-		'marquee_3'       => array( 'label' => 'Marquee — 3', 'w' => 520, 'h' => 680, 'node' => '33:1149' ),
-		'marquee_4'       => array( 'label' => 'Marquee — 4', 'w' => 520, 'h' => 680, 'node' => '33:1150' ),
-		'marquee_5'       => array( 'label' => 'Marquee — 5', 'w' => 520, 'h' => 680, 'node' => '33:1151' ),
+		'craftsmen_1'     => array( 'label' => 'Craftsmen — 1', 'w' => 1115, 'h' => 680, 'node' => '33:1147' ),
+		'craftsmen_2'     => array( 'label' => 'Craftsmen — 2 (video)', 'w' => 1115, 'h' => 680, 'node' => '33:1148' ),
+		'craftsmen_3'     => array( 'label' => 'Craftsmen — 3', 'w' => 1115, 'h' => 680, 'node' => '33:1154' ),
 
-		'contact'         => array( 'label' => 'Contact — image', 'w' => 600, 'h' => 543, 'node' => '33:1156' ),
+		'contact'         => array( 'label' => 'Contact — image', 'w' => 574, 'h' => 543, 'node' => '33:1174' ),
 	);
 }
 
