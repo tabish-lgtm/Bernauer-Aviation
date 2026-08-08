@@ -17,6 +17,8 @@ if ( ! defined( 'BERNAUER_VERSION' ) ) {
 require_once get_theme_file_path( 'inc/images.php' );
 // Editable text / contact / social settings.
 require_once get_theme_file_path( 'inc/customizer.php' );
+// Inline SVG icon set (exact Figma glyphs).
+require_once get_theme_file_path( 'inc/icons.php' );
 
 /**
  * Theme supports.
