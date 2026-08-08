@@ -6,10 +6,10 @@
  */
 
 $materials = array(
-	array( 'slot' => 'materials_1', 'title' => 'Full Grain Leather' ),
-	array( 'slot' => 'materials_2', 'title' => 'Alcantara®' ),
-	array( 'slot' => 'materials_3', 'title' => 'Ultraleather®' ),
-	array( 'slot' => 'materials_4', 'title' => 'Aircraft Certified Wool Fabric' ),
+	array( 'slot' => 'materials_1', 'title' => 'Premium Leather' ),
+	array( 'slot' => 'materials_2', 'title' => 'Cabin Upholstery Fabric' ),
+	array( 'slot' => 'materials_3', 'title' => 'Premium Woven Fabric' ),
+	array( 'slot' => 'materials_4', 'title' => 'High-Density Foam' ),
 );
 ?>
 <section class="section materials" id="materials">
