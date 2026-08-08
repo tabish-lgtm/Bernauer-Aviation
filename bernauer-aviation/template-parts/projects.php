@@ -46,6 +46,27 @@ $projects = array(
 		'tags'  => array( 'Full Cabin', 'Premium Materials', 'Bespoke' ),
 		'cats'  => array( 'Panels', 'Seats' ),
 	),
+	array(
+		'file'  => 'cockpit.jpg',
+		'title' => 'Cockpit Trim & Panel Refinishing',
+		'desc'  => 'Precision-refinished cockpit trim and console panels, upholstered for a flawless fit and a clean, durable finish around every instrument and control.',
+		'tags'  => array( 'Cockpit', 'Panel Fabrication', 'Precision Crafted' ),
+		'cats'  => array( 'Cockpits' ),
+	),
+	array(
+		'file'  => 'carpets.jpg',
+		'title' => 'Cabin Aisle & Carpet Fitting',
+		'desc'  => 'Custom-cut aisle runners and cabin carpeting in durable, aviation-grade materials — precisely fitted for a seamless, refined floor throughout the cabin.',
+		'tags'  => array( 'Carpets', 'Custom Fit', 'Aviation Grade' ),
+		'cats'  => array( 'Carpets' ),
+	),
+	array(
+		'file'  => 'curtains.jpg',
+		'title' => 'Cabin Dividers & Curtain Fitting',
+		'desc'  => 'Bespoke cabin dividers and curtains crafted to complement the interior — tailored for privacy, light control, and a soft, premium finish.',
+		'tags'  => array( 'Curtains', 'Cabin Dividers', 'Bespoke' ),
+		'cats'  => array( 'Curtains' ),
+	),
 );
 
 // Resolve image URLs for the JSON payload.
