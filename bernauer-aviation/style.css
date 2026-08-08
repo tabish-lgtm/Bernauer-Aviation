@@ -902,3 +902,20 @@ button { font-family: inherit; cursor: pointer; }
 @media (max-width: 380px) {
   .footer__methods { flex-direction: column; }
 }
+
+/* =========================================================================
+   6. SCROLL REVEAL — text/content appear animation (JS adds .has-reveal)
+   ========================================================================= */
+@media (prefers-reduced-motion: no-preference) {
+  .has-reveal .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .has-reveal .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}

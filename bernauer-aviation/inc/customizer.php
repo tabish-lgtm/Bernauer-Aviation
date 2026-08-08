@@ -40,9 +40,6 @@ function bernauer_customize_text( $wp_customize ) {
 		'bernauer_instagram'     => array( 'label' => 'Instagram URL', 'default' => 'https://www.instagram.com/bernauer.design/', 'type' => 'url' ),
 		'bernauer_linkedin'      => array( 'label' => 'LinkedIn URL', 'default' => '#', 'type' => 'url' ),
 		'bernauer_facebook'      => array( 'label' => 'Facebook URL', 'default' => 'https://www.facebook.com/bernauer.design/', 'type' => 'url' ),
-		'bernauer_link_blog'     => array( 'label' => 'Footer link: Blog', 'default' => '#', 'type' => 'url' ),
-		'bernauer_link_jobs'     => array( 'label' => 'Footer link: Jobs', 'default' => '#', 'type' => 'url' ),
-		'bernauer_link_legals'   => array( 'label' => 'Footer link: Legals', 'default' => '#', 'type' => 'url' ),
 	);
 
 	foreach ( $fields as $id => $field ) {

@@ -15,12 +15,6 @@ $map_url       = get_theme_mod( 'bernauer_map', 'https://www.google.com/maps/pla
 $map_embed     = get_theme_mod( 'bernauer_map_embed', 'https://maps.google.com/maps?q=47.5749143,8.5111897&z=15&hl=de&output=embed' );
 $copyright     = get_theme_mod( 'bernauer_copyright', '© 2026 Bernauer Aviation, Inc.' );
 
-$links = array(
-	array( 'label' => 'Blog', 'url' => get_theme_mod( 'bernauer_link_blog', '#' ) ),
-	array( 'label' => 'Jobs', 'url' => get_theme_mod( 'bernauer_link_jobs', '#' ) ),
-	array( 'label' => 'Legals', 'url' => get_theme_mod( 'bernauer_link_legals', '#' ) ),
-);
-
 $phone_href = 'tel:' . preg_replace( '/[^0-9+]/', '', $phone );
 ?>
 <footer class="footer" id="contact">
@@ -93,12 +87,6 @@ $phone_href = 'tel:' . preg_replace( '/[^0-9+]/', '', $phone );
 
 	<div class="footer__bar">
 		<p class="footer__copy"><?php echo esc_html( $copyright ); ?></p>
-
-		<nav class="footer__links" aria-label="<?php esc_attr_e( 'Footer links', 'bernauer-aviation' ); ?>">
-			<?php foreach ( $links as $link ) : ?>
-				<a href="<?php echo esc_url( $link['url'] ); ?>"><?php echo esc_html( $link['label'] ); ?></a>
-			<?php endforeach; ?>
-		</nav>
 
 		<div class="footer__social">
 			<a href="<?php echo esc_url( get_theme_mod( 'bernauer_instagram', 'https://www.instagram.com/bernauer.design/' ) ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><?php echo bernauer_icon( 'instagram' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>

@@ -16,6 +16,62 @@
 			});
 		}
 
+		// Scroll reveal: fade/slide content in as it enters the viewport.
+		(function () {
+			var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+			if (reduce || !("IntersectionObserver" in window)) return;
+
+			var selectors = [
+				".hero__title", ".hero__desc", ".hero__media",
+				".sec-header__lead", ".sec-header__desc",
+				".process__header", ".benefits__header", ".materials__header",
+				".gallery__header", ".craftsmen__header",
+				".wwd-card", ".benefit-card", ".process-step", ".material",
+				".gallery__cell--large", ".gallery__stack", ".gallery__cell--wide",
+				".projects__filters", ".project__media", ".project__info-row", ".project__footer",
+				".craftsmen__item",
+				".footer__intro", ".footer__methods-wrap", ".footer__image", ".footer__bar"
+			];
+
+			var els = [];
+			selectors.forEach(function (sel) {
+				document.querySelectorAll(sel).forEach(function (el) {
+					if (el.classList.contains("reveal")) return;
+					el.classList.add("reveal");
+					els.push(el);
+				});
+			});
+			if (!els.length) return;
+
+			document.documentElement.classList.add("has-reveal");
+
+			// Stagger siblings that reveal together.
+			els.forEach(function (el) {
+				var sibs = Array.prototype.filter.call(el.parentElement.children, function (c) {
+					return c.classList.contains("reveal");
+				});
+				var i = sibs.indexOf(el);
+				if (i > 0) el.style.transitionDelay = Math.min(i, 5) * 70 + "ms";
+			});
+
+			var io = new IntersectionObserver(function (entries) {
+				entries.forEach(function (e) {
+					if (e.isIntersecting) {
+						e.target.classList.add("is-visible");
+						io.unobserve(e.target);
+					}
+				});
+			}, { rootMargin: "0px 0px 0px 0px", threshold: 0.08 });
+			els.forEach(function (el) { io.observe(el); });
+
+			// Safety net: reveal anything still hidden once near the page bottom.
+			window.addEventListener("scroll", function () {
+				if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) {
+					els.forEach(function (el) { el.classList.add("is-visible"); });
+				}
+			}, { passive: true });
+		})();
+
 		// Projects: filterable carousel driven by the JSON payload.
 		(function () {
 			var root = document.querySelector("[data-projects]");
