@@ -30,7 +30,7 @@ function bernauer_customize_text( $wp_customize ) {
 		'bernauer_email'         => array( 'label' => 'Email', 'default' => 'info@bernauer.design', 'type' => 'text' ),
 		'bernauer_address'       => array( 'label' => 'Address', 'default' => "Weberstraße 10a\n79801 Hohentengen-Lienheim\nDeutschland", 'type' => 'textarea' ),
 		'bernauer_map'           => array( 'label' => 'Map link URL (address "View on map")', 'default' => 'https://www.google.com/maps/place/Bernauer+Design+-+Polster+%26+Taschen+%22Swiss+Made%22/@47.565653,8.44304,13z/data=!4m6!3m5!1s0x47907786b3c3375d:0x9a4b4dd068a2d55b!8m2!3d47.5749143!4d8.5111897!16s%2Fg%2F11w9877cr4?hl=de', 'type' => 'url' ),
-		'bernauer_map_embed'     => array( 'label' => 'Map embed URL (footer iframe)', 'default' => 'https://maps.google.com/maps?q=Bernauer+Design+-+Polster+%26+Taschen+Swiss+Made&hl=de&z=15&output=embed', 'type' => 'url' ),
+		'bernauer_map_embed'     => array( 'label' => 'Map embed URL (footer iframe)', 'default' => 'https://maps.google.com/maps?q=47.5749143,8.5111897&z=15&hl=de&output=embed', 'type' => 'url' ),
 		'bernauer_copyright'     => array( 'label' => 'Copyright', 'default' => '© 2026 Bernauer Aviation, Inc.', 'type' => 'text' ),
 		'bernauer_video_1'       => array( 'label' => 'Craftsmen video 1 URL (overrides bundled Process 01)', 'default' => '', 'type' => 'url' ),
 		'bernauer_video_2'       => array( 'label' => 'Craftsmen video 2 URL (overrides bundled Process 03)', 'default' => '', 'type' => 'url' ),
