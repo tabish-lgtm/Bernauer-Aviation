@@ -415,6 +415,16 @@ button { font-family: inherit; cursor: pointer; }
 .project__nav-btn { color: var(--zinc-950); }
 .project__nav-btn svg { display: block; width: 100%; height: 100%; }
 .project__nav-btn:hover { background: var(--zinc-100); }
+.project__nav-btn:disabled { opacity: 0.4; cursor: default; }
+.project__footer { display: flex; align-items: center; gap: 20px; }
+.project__count {
+  font-size: 14px;
+  line-height: 1;
+  color: var(--zinc-500);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.14px;
+}
+.project__empty { font-size: 16px; line-height: 1.4; color: var(--zinc-500); }
 
 /* --- Process --- */
 .process {
