@@ -32,9 +32,9 @@ function bernauer_video_embed( $url ) {
 // Three tiles (per the Figma design). Each defaults to a bundled clip and can
 // be overridden per-slot in the Customizer with a file or YouTube/Vimeo link.
 $items = array(
-	array( 'mod' => 'bernauer_video_1', 'file' => 'process-1.mp4', 'slot' => 'craftsmen_1' ),
-	array( 'mod' => 'bernauer_video_2', 'file' => 'process-3.mp4', 'slot' => 'craftsmen_2' ),
-	array( 'mod' => 'bernauer_video_3', 'file' => 'panels.mp4',    'slot' => 'craftsmen_3' ),
+	array( 'mod' => 'bernauer_video_1', 'file' => 'process-1.mp4',  'slot' => 'craftsmen_1' ),
+	array( 'mod' => 'bernauer_video_2', 'file' => 'process-4.mp4',  'slot' => 'craftsmen_2' ),
+	array( 'mod' => 'bernauer_video_3', 'file' => 'process-10.mp4', 'slot' => 'craftsmen_3' ),
 );
 ?>
 <section class="section craftsmen" id="craftsmen">
