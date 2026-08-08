@@ -38,7 +38,6 @@ function bernauer_customize_text( $wp_customize ) {
 		'bernauer_video_4'       => array( 'label' => 'Craftsmen video 4 URL (overrides bundled Process 05)', 'default' => '', 'type' => 'url' ),
 		'bernauer_video_5'       => array( 'label' => 'Craftsmen video 5 URL (overrides bundled Process 10)', 'default' => '', 'type' => 'url' ),
 		'bernauer_instagram'     => array( 'label' => 'Instagram URL', 'default' => 'https://www.instagram.com/bernauer.design/', 'type' => 'url' ),
-		'bernauer_linkedin'      => array( 'label' => 'LinkedIn URL', 'default' => '#', 'type' => 'url' ),
 		'bernauer_facebook'      => array( 'label' => 'Facebook URL', 'default' => 'https://www.facebook.com/bernauer.design/', 'type' => 'url' ),
 	);
 
