@@ -737,6 +737,7 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1.4;
   letter-spacing: -0.14px;
   color: var(--stone-400);
+  overflow-wrap: anywhere;
 }
 .footer__address {
   display: flex;
@@ -833,7 +834,7 @@ button { font-family: inherit; cursor: pointer; }
   /* Footer becomes a single column */
   .footer { padding: 88px 40px 6px; }
   .footer__contact { flex-direction: column; align-items: stretch; gap: 40px; }
-  .footer__main { min-height: 0; }
+  .footer__main { min-height: 0; flex: 0 0 auto; }
   .footer__title,
   .footer__desc { width: 100%; max-width: 100%; }
   .footer__methods { width: 100%; }
