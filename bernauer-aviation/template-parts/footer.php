@@ -18,6 +18,7 @@ $copyright     = get_theme_mod( 'bernauer_copyright', '© 2026 Bernauer Aviation
 $phone_href = 'tel:' . preg_replace( '/[^0-9+]/', '', $phone );
 ?>
 <footer class="footer" id="contact">
+	<div class="footer__inner">
 	<div class="footer__contact">
 		<div class="footer__main">
 			<div class="footer__intro">
@@ -93,4 +94,5 @@ $phone_href = 'tel:' . preg_replace( '/[^0-9+]/', '', $phone );
 			<a href="<?php echo esc_url( get_theme_mod( 'bernauer_facebook', 'https://www.facebook.com/bernauer.design/' ) ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><?php echo bernauer_icon( 'facebook' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
 		</div>
 	</div>
+	</div><!-- .footer__inner -->
 </footer>
