@@ -40,13 +40,13 @@ function bernauer_image_slots() {
 		'cta_bg'          => array( 'label' => 'CTA band — background photo', 'w' => 1440, 'h' => 568, 'node' => '64:435', 'file' => 'cabin-refurbishment.jpg' ),
 
 		// In-house production — "Fully equipped 280 m² upholstery workshop".
-		'workshop'        => array( 'label' => 'Workshop — in-house production photo', 'w' => 668, 'h' => 570, 'node' => '64:475' ),
+		'workshop'        => array( 'label' => 'Workshop — in-house production photo', 'w' => 668, 'h' => 566, 'node' => '64:475', 'file' => 'workshop.jpg' ),
 
 		// On-site support — "Skilled support directly at your facility".
-		'onsite'          => array( 'label' => 'On-site support — photo', 'w' => 668, 'h' => 570, 'node' => '64:478' ),
+		'onsite'          => array( 'label' => 'On-site support — photo', 'w' => 668, 'h' => 570, 'node' => '64:478', 'file' => 'onsite.jpg' ),
 
 		// Meet the Craftsmen — founder portrait.
-		'craftsmen_portrait' => array( 'label' => 'Craftsmen — Lukas Bernauer portrait', 'w' => 668, 'h' => 568, 'node' => '64:510' ),
+		'craftsmen_portrait' => array( 'label' => 'Craftsmen — Lukas Bernauer portrait', 'w' => 668, 'h' => 568, 'node' => '64:510', 'file' => 'portrait.jpg' ),
 
 		// Craftsmen — three video tiles (posters optional).
 		'craftsmen_1'     => array( 'label' => 'Craftsmen video 1 — poster (optional)', 'w' => 400, 'h' => 500, 'node' => '64:512' ),
