@@ -23,24 +23,24 @@
 
 			var selectors = [
 				".hero__title", ".hero__desc", ".hero__media",
-				".sec-header__lead", ".sec-header__desc",
-				".process__header", ".benefits__header", ".materials__header",
-				".gallery__header", ".craftsmen__header",
-				".wwd-card", ".benefit-card", ".process-step", ".material",
-				".gallery__cell--large", ".gallery__stack", ".gallery__cell--wide",
+				".wwd-card",
 				".projects__filters", ".project__media", ".project__info-row", ".project__footer",
 				".craftsmen__item",
-				".footer__intro", ".footer__methods-wrap", ".footer__image", ".footer__bar"
+				".footer__image", ".footer__bar"
 			];
 
 			var els = [];
+			function addEl(el) {
+				if (els.indexOf(el) === -1) els.push(el);
+			}
 			selectors.forEach(function (sel) {
 				document.querySelectorAll(sel).forEach(function (el) {
-					if (el.classList.contains("reveal")) return;
 					el.classList.add("reveal");
-					els.push(el);
+					addEl(el);
 				});
 			});
+			// Also observe elements marked `.reveal` directly in the templates.
+			document.querySelectorAll(".reveal").forEach(addEl);
 			if (!els.length) return;
 
 			document.documentElement.classList.add("has-reveal");

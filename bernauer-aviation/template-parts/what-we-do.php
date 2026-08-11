@@ -1,45 +1,56 @@
 <?php
 /**
- * What we do — section header + 2×2 grid of service cards.
+ * Services — "Specialized aircraft interior services" (section header + 2×3
+ * grid of service tiles). Figma node 64:294.
  *
  * @package Bernauer_Aviation
  */
 
-$cards = array(
+$services = array(
 	array(
-		'slot'  => 'wwd_1',
-		'title' => 'Cabin Seating',
-		'desc'  => 'Premium seat restoration and custom upholstery designed for exceptional comfort, durability, and a refined in flight experience.',
+		'slot'  => 'svc_seating',
+		'title' => 'Aircraft seating & divans',
+		'desc'  => 'Seat and Divan upholstery, refurbishment and covering in Leather, Fabric, Ultrasuede and ®Alcantara and more.',
 	),
 	array(
-		'slot'  => 'wwd_2',
-		'title' => 'Cabin Panels & Trim',
-		'desc'  => 'Expert restoration of side panels, bulkheads, headliners, and interior trim with seamless finishes and premium materials.',
+		'slot'  => 'svc_foam',
+		'title' => 'Foam mock-ups, modification & replacement',
+		'desc'  => 'Foam replacement, rebuilding, reshaping and individual cushion solutions.',
 	),
 	array(
-		'slot'  => 'wwd_3',
-		'title' => 'Leather Restoration',
-		'desc'  => 'Restore worn aircraft interiors with premium leather refinishing, precision stitching, and factory quality craftsmanship.',
+		'slot'  => 'svc_panels',
+		'title' => 'Cabin panels & linings',
+		'desc'  => 'Refurbishment and reupholstery of cabin panels, Windowliner, Headliner, PSU, Sidedges, Dado-Panels, Bulkheads, and further interior linings.',
 	),
 	array(
-		'slot'  => 'wwd_4',
-		'title' => 'Custom Cabin Refurbishment',
-		'desc'  => 'Complete aircraft interior transformations tailored to your vision, combining luxury materials with meticulous attention to detail.',
+		'slot'  => 'svc_carpets',
+		'title' => 'Carpets & fabric flooring',
+		'desc'  => 'Installation and replacement of textile floors, including Trimming, Edging, Cutting, and on-site installation.',
+	),
+	array(
+		'slot'  => 'svc_leather',
+		'title' => 'Leather restoration',
+		'desc'  => 'Professional cleaning, conditioning, repair and restoration of aircraft leather surfaces.',
+	),
+	array(
+		'slot'  => 'svc_curtains',
+		'title' => 'Curtains, sewing & custom interior components',
+		'desc'  => 'Individual sewing services for Curtains, Bags, Accessories and custom-made interior components.',
 	),
 );
 ?>
 <section class="section wwd" id="what-we-do">
-	<header class="wwd__header sec-header">
+	<header class="wwd__header sec-header reveal">
 		<div class="sec-header__lead">
 			<p class="sec-header__kicker">Aviation Expertise</p>
-			<h2 class="sec-header__title">Crafting Premium Aircraft Interiors with Precision</h2>
+			<h2 class="sec-header__title">Specialized aircraft interior services</h2>
 		</div>
-		<p class="sec-header__desc">From executive seating to handcrafted cabin finishes, we deliver bespoke upholstery solutions that enhance comfort, durability, and the premium experience of every flight.</p>
+		<p class="sec-header__desc">From individual components to complete cabin refurbishment, we provide specialized upholstery and interior services for business aviation.</p>
 	</header>
 
 	<div class="wwd__grid">
-		<?php foreach ( $cards as $card ) : ?>
-			<article class="wwd-card">
+		<?php foreach ( $services as $card ) : ?>
+			<article class="wwd-card reveal">
 				<div class="wwd-card__media">
 					<?php bernauer_image( $card['slot'], 'wwd-card__img' ); ?>
 				</div>

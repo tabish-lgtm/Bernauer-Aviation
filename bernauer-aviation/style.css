@@ -490,10 +490,9 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--zinc-600);
 }
 
-/* --- Benefits --- */
+/* --- Benefits — "Why choose bernauer" (3-column panel) --- */
 .benefits {
-  background: var(--zinc-50);
-  padding-block: 132px;
+  padding-block: 64px 128px;
 }
 .benefits__inner { display: flex; flex-direction: column; gap: 64px; align-items: center; width: 100%; }
 .benefits__header {
@@ -504,43 +503,156 @@ button { font-family: inherit; cursor: pointer; }
   max-width: 560px;
   text-align: center;
 }
-.benefits__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  width: 100%;
-}
-.benefit-card {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  padding: 24px;
-  background: var(--white);
-  border: 1px solid var(--zinc-200);
-  border-radius: 8px;
-}
-.benefit-card__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 4px;
-  background: var(--zinc-100);
-}
-.benefit-card__text { display: flex; flex-direction: column; gap: 12px; }
-.benefit-card__title {
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: -0.72px;
-  color: var(--zinc-950);
-}
-.benefit-card__desc {
+.benefits__lede {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.4;
   color: var(--zinc-600);
+}
+.benefits__panel {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.why-col {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 24px 32px;
+  background: var(--white);
+}
+.why-col + .why-col { border-left: 1px solid var(--zinc-200); }
+.why-col__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+  background: var(--zinc-100);
+}
+.why-col__icon svg { width: 40px; height: 40px; }
+.why-col__text { display: flex; flex-direction: column; gap: 32px; }
+.why-col__head { display: flex; flex-direction: column; gap: 12px; }
+.why-col__title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.72px;
+  color: var(--zinc-950);
+}
+.why-col__desc {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--zinc-600);
+}
+.why-col__list { display: flex; flex-direction: column; gap: 16px; }
+.why-col__item { display: flex; gap: 10px; align-items: flex-start; }
+.why-col__item-icon {
+  flex-shrink: 0;
+  display: flex;
+  width: 20px;
+  height: 20px;
+  color: var(--zinc-950);
+}
+.why-col__item-icon svg { display: block; }
+.why-col__item-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--zinc-950);
+}
+
+/* --- CTA band — "Your workshop or ours" (full-bleed dark photo) --- */
+.cta-band {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 368px;
+  padding: 100px var(--gutter);
+  background-color: var(--zinc-950);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.cta-band__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(70deg, rgba(0,0,0,0.92) 41%, rgba(0,0,0,0) 74%);
+}
+.cta-band__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 531px;
+}
+.cta-band__title {
+  font-weight: 500;
+  font-size: 54px;
+  line-height: 1;
+  letter-spacing: -1.62px;
+  color: var(--white);
+}
+.cta-band__desc {
+  max-width: 419px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--zinc-300);
+}
+
+/* --- Feature split — workshop / on-site (text + checklist / photo) --- */
+.feature-split { padding-block: 128px 64px; }
+.feature-split--reverse { padding-block: 64px; }
+.feature-split__row {
+  display: flex;
+  gap: 64px;
+  align-items: stretch;
+  width: 100%;
+}
+.feature-split__text {
+  flex: 0 0 580px;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+.feature-split__head { display: flex; flex-direction: column; gap: 16px; }
+.feature-split__title { width: 100%; }
+.feature-split__desc {
+  max-width: 447px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--zinc-600);
+}
+.feature-split__media {
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+}
+.feature-split__img { width: 100%; height: 100%; object-fit: cover; }
+.feature-list { display: flex; flex-direction: column; gap: 16px; }
+.feature-list__item { display: flex; gap: 10px; align-items: flex-start; }
+.feature-list__icon {
+  flex-shrink: 0;
+  display: flex;
+  width: 20px;
+  height: 20px;
+  color: var(--zinc-950);
+}
+.feature-list__icon svg { display: block; }
+.feature-list__text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--zinc-950);
 }
 
 /* --- Materials --- */
@@ -598,33 +710,71 @@ button { font-family: inherit; cursor: pointer; }
 .gallery__cell--wide { width: 100%; aspect-ratio: 1312 / 568; }
 .gallery__img { width: 100%; height: 100%; object-fit: cover; }
 
-/* --- Craftsmen (full-bleed horizontal strip) --- */
+/* --- Craftsmen — bio + portrait, then a row of three video tiles --- */
 .craftsmen {
   display: flex;
   flex-direction: column;
-  gap: 64px;
-  align-items: center;
-  padding-block: 0 132px;
+  gap: 44px;
+  align-items: stretch;
+  padding-block: 64px 128px;
 }
-.craftsmen__header {
+.craftsmen__bio {
+  display: flex;
+  gap: 64px;
+  align-items: stretch;
+  width: 100%;
+}
+.craftsmen__intro {
+  flex: 0 0 580px;
+  max-width: 580px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  text-align: center;
-  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
 }
-.craftsmen__title { width: 765px; max-width: 765px; }
+.craftsmen__intro-head { display: flex; flex-direction: column; gap: 16px; }
+.craftsmen__title { width: 100%; max-width: 526px; }
+.craftsmen__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--zinc-600);
+}
+.craftsmen__person { display: flex; flex-direction: column; gap: 4px; }
+.craftsmen__name {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: -0.48px;
+  color: var(--zinc-950);
+}
+.craftsmen__role {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--zinc-600);
+}
+.craftsmen__portrait {
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--zinc-100);
+}
+.craftsmen__portrait-img { width: 100%; height: 100%; object-fit: cover; }
 .craftsmen__track {
   display: flex;
   gap: 32px;
   width: 100%;
-  justify-content: center;
+  height: 500px;
 }
 .craftsmen__item {
   position: relative;
-  flex: 0 1 400px;
-  max-width: 400px;
-  aspect-ratio: 400 / 500;
+  flex: 1 0 0;
+  min-width: 0;
+  height: 100%;
   overflow: hidden;
 }
 .craftsmen__img { width: 100%; height: 100%; object-fit: cover; }
@@ -674,12 +824,12 @@ button { font-family: inherit; cursor: pointer; }
 .footer {
   background: var(--zinc-950);
   color: var(--white);
-  padding-block: 132px 6px;
+  padding-block: 96px 0;
 }
 .footer__inner {
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 44px;
   width: 100%;
   max-width: var(--canvas);
   margin-inline: auto;
@@ -695,15 +845,47 @@ button { font-family: inherit; cursor: pointer; }
   justify-content: space-between;
   gap: 40px;
 }
+.footer__top { display: flex; flex-direction: column; gap: 32px; }
+.footer__logo { display: flex; align-items: center; gap: 10px; height: 36px; }
+.footer__logo-mark { display: flex; width: 25px; height: 36px; }
+.footer__logo-mark img { width: 100%; height: 100%; object-fit: contain; }
+.footer__logo-word { display: flex; flex-direction: column; gap: 1px; line-height: 1.4; }
+.footer__logo-name {
+  font-weight: 500;
+  font-size: 14.561px;
+  letter-spacing: -0.1456px;
+  color: var(--white);
+}
+.footer__logo-tagline {
+  font-weight: 400;
+  font-size: 10.921px;
+  letter-spacing: 1.3105px;
+  text-transform: uppercase;
+  color: var(--zinc-300);
+}
 .footer__intro { display: flex; flex-direction: column; gap: 16px; }
 .footer__title {
   width: 582px;
   max-width: 100%;
   font-weight: 500;
-  font-size: 54px;
+  font-size: 48px;
   line-height: 1;
-  letter-spacing: -1.62px;
+  letter-spacing: -1.44px;
   color: var(--white);
+}
+.footer__commit { display: flex; flex-direction: column; gap: 8px; }
+.footer__commit-title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: -0.72px;
+  color: var(--white);
+}
+.footer__commit-desc {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--zinc-400);
 }
 .footer__desc {
   width: 556px;
@@ -824,14 +1006,23 @@ button { font-family: inherit; cursor: pointer; }
   .sec-header__desc,
   .sec-header__desc--wide { width: 100%; max-width: 100%; }
 
-  /* Grids reflow */
-  .benefits__grid { grid-template-columns: repeat(2, 1fr); }
-  .materials__grid { grid-template-columns: repeat(2, 1fr); }
-  .materials__title,
-  .gallery__title,
+  /* Headers go full width */
   .craftsmen__title,
-  .process__header,
   .benefits__header { width: 100%; max-width: 100%; }
+
+  /* Benefits panel → single column, horizontal dividers */
+  .benefits__panel { flex-direction: column; }
+  .why-col + .why-col { border-left: 0; border-top: 1px solid var(--zinc-200); }
+
+  /* Feature split (workshop / on-site) stacks */
+  .feature-split__row { flex-direction: column; gap: 40px; }
+  .feature-split__text { flex: 0 0 auto; max-width: 100%; gap: 40px; }
+  .feature-split__media { width: 100%; aspect-ratio: 668 / 480; }
+
+  /* Craftsmen bio stacks */
+  .craftsmen__bio { flex-direction: column; gap: 40px; }
+  .craftsmen__intro { flex: 0 0 auto; max-width: 100%; gap: 32px; }
+  .craftsmen__portrait { width: 100%; aspect-ratio: 668 / 520; }
 
   /* Projects info stacks */
   .project__info-row { flex-direction: column; align-items: flex-start; gap: 20px; }
@@ -863,27 +1054,24 @@ button { font-family: inherit; cursor: pointer; }
 
   /* Reduce big display headings to the mobile scale */
   .sec-header__title,
-  .materials__title,
-  .gallery__title,
   .craftsmen__title,
-  .process__header .sec-header__title,
+  .cta-band__title,
   .benefits__header .sec-header__title { font-size: clamp(28px, 7.5vw, 34px); letter-spacing: -0.9px; }
   .footer__title { font-size: clamp(30px, 8vw, 38px); letter-spacing: -1px; }
 
   /* Compress vertical rhythm (mobile uses ~64px) */
   .wwd { padding-block: 0 64px; gap: 40px; }
   .projects { padding-block: 64px; gap: 40px; }
-  .process { padding-block: 64px; gap: 40px; }
-  .benefits { padding-block: 64px; }
+  .benefits { padding-block: 40px 64px; }
   .benefits__inner { gap: 40px; }
-  .materials { padding-block: 64px; gap: 40px; }
-  .gallery { padding-block: 64px; gap: 40px; }
-  .craftsmen { padding-block: 0 64px; gap: 40px; }
+  .cta-band { padding: 64px 20px; min-height: 300px; }
+  .feature-split { padding-block: 64px; }
+  .feature-split--reverse { padding-block: 64px; }
+  .feature-split__text { gap: 32px; }
+  .craftsmen { padding-block: 40px 64px; gap: 40px; }
 
   /* Single-column grids */
   .wwd__grid { grid-template-columns: 1fr; row-gap: 40px; }
-  .benefits__grid { grid-template-columns: 1fr; }
-  .materials__grid { grid-template-columns: 1fr; }
 
   /* Projects: portrait feature image, scrollable filters */
   .project__media { aspect-ratio: 350 / 480; }
@@ -891,14 +1079,9 @@ button { font-family: inherit; cursor: pointer; }
   .projects__filters::-webkit-scrollbar { display: none; }
   .projects__filter { flex: 0 0 auto; }
 
-  /* Process steps stack vertically with horizontal dividers */
-  .process__steps { flex-direction: column; }
-  .process-step { gap: 40px; }
-  .process-step + .process-step { border-left: 0; border-top: 1px solid var(--zinc-200); }
-
-  /* Craftsmen tiles stack on mobile */
-  .craftsmen__track { flex-direction: column; align-items: center; }
-  .craftsmen__item { flex: none; width: 100%; max-width: 400px; }
+  /* Craftsmen video tiles stack on mobile */
+  .craftsmen__track { flex-direction: column; align-items: center; height: auto; }
+  .craftsmen__item { flex: none; width: 100%; max-width: 400px; aspect-ratio: 400 / 500; }
 
   /* Footer */
   .footer { padding-block: 64px 6px; }

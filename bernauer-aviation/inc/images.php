@@ -26,32 +26,34 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function bernauer_image_slots() {
 	return array(
-		'hero'            => array( 'label' => 'Hero — cabin', 'w' => 1312, 'h' => 600, 'node' => '33:975', 'file' => 'hero-cabin.jpg' ),
+		'hero'            => array( 'label' => 'Hero — cabin', 'w' => 1312, 'h' => 600, 'node' => '64:293', 'file' => 'hero-cabin.jpg' ),
 
-		'wwd_1'           => array( 'label' => 'What we do — Cabin Seating', 'w' => 644, 'h' => 424, 'node' => '33:985', 'file' => 'cabin-seating.jpg' ),
-		'wwd_2'           => array( 'label' => 'What we do — Cabin Panels & Trim', 'w' => 644, 'h' => 424, 'node' => '33:990', 'file' => 'cabin-panels.jpg' ),
-		'wwd_3'           => array( 'label' => 'What we do — Leather Restoration', 'w' => 644, 'h' => 424, 'node' => '33:996', 'file' => 'leather-restoration.jpg' ),
-		'wwd_4'           => array( 'label' => 'What we do — Custom Cabin Refurbishment', 'w' => 644, 'h' => 424, 'node' => '33:1001', 'file' => 'cabin-refurbishment.jpg' ),
+		// Services — "Specialized aircraft interior services" (6 tiles).
+		'svc_seating'     => array( 'label' => 'Service — Aircraft seating & divans', 'w' => 644, 'h' => 424, 'node' => '64:303', 'file' => 'cabin-seating.jpg' ),
+		'svc_foam'        => array( 'label' => 'Service — Foam mock-ups, modification & replacement', 'w' => 644, 'h' => 424, 'node' => '64:308', 'file' => 'high-density-foam.jpg' ),
+		'svc_panels'      => array( 'label' => 'Service — Cabin panels & linings', 'w' => 644, 'h' => 424, 'node' => '64:314', 'file' => 'cabin-panels.jpg' ),
+		'svc_carpets'     => array( 'label' => 'Service — Carpets & fabric flooring', 'w' => 644, 'h' => 424, 'node' => '64:319', 'file' => 'carpets.jpg' ),
+		'svc_leather'     => array( 'label' => 'Service — Leather restoration', 'w' => 644, 'h' => 424, 'node' => '64:325', 'file' => 'leather-restoration.jpg' ),
+		'svc_curtains'    => array( 'label' => 'Service — Curtains & custom sewing', 'w' => 644, 'h' => 424, 'node' => '64:330', 'file' => 'curtains.jpg' ),
 
-		'projects_featured' => array( 'label' => 'Projects — featured', 'w' => 1312, 'h' => 600, 'node' => '33:1029', 'file' => 'cabin-seating.jpg' ),
+		// CTA band — "Your workshop or ours. One team" (dark background photo).
+		'cta_bg'          => array( 'label' => 'CTA band — background photo', 'w' => 1440, 'h' => 568, 'node' => '64:435', 'file' => 'cabin-refurbishment.jpg' ),
 
-		'materials_1'     => array( 'label' => 'Materials — Premium Leather', 'w' => 344, 'h' => 400, 'node' => '42:1760', 'file' => 'premium-leather.jpg' ),
-		'materials_2'     => array( 'label' => 'Materials — Cabin Upholstery Fabric', 'w' => 344, 'h' => 400, 'node' => '42:1763', 'file' => 'cabin-upholstery-fabric.jpg' ),
-		'materials_3'     => array( 'label' => 'Materials — Premium Woven Fabric', 'w' => 344, 'h' => 400, 'node' => '42:1766', 'file' => 'premium-woven-fabric.jpg' ),
-		'materials_4'     => array( 'label' => 'Materials — High-Density Foam', 'w' => 344, 'h' => 400, 'node' => '42:1769', 'file' => 'high-density-foam.jpg' ),
+		// In-house production — "Fully equipped 280 m² upholstery workshop".
+		'workshop'        => array( 'label' => 'Workshop — in-house production photo', 'w' => 668, 'h' => 570, 'node' => '64:475' ),
 
-		'gallery_1'       => array( 'label' => 'Gallery — large left', 'w' => 844, 'h' => 568, 'node' => '33:1137', 'file' => 'hero-cabin.jpg' ),
-		'gallery_2'       => array( 'label' => 'Gallery — right top', 'w' => 444, 'h' => 272, 'node' => '33:1139', 'file' => 'cabin-panels.jpg' ),
-		'gallery_3'       => array( 'label' => 'Gallery — right bottom', 'w' => 444, 'h' => 272, 'node' => '33:1140', 'file' => 'cabin-refurbishment.jpg' ),
-		'gallery_4'       => array( 'label' => 'Gallery — full width', 'w' => 1312, 'h' => 568, 'node' => '33:1141', 'file' => 'cabin-seating.jpg' ),
+		// On-site support — "Skilled support directly at your facility".
+		'onsite'          => array( 'label' => 'On-site support — photo', 'w' => 668, 'h' => 570, 'node' => '64:478' ),
 
-		'craftsmen_1'     => array( 'label' => 'Craftsmen video 1 — poster (optional)', 'w' => 1115, 'h' => 680, 'node' => '33:1147' ),
-		'craftsmen_2'     => array( 'label' => 'Craftsmen video 2 — poster (optional)', 'w' => 1115, 'h' => 680, 'node' => '33:1148' ),
-		'craftsmen_3'     => array( 'label' => 'Craftsmen video 3 — poster (optional)', 'w' => 1115, 'h' => 680, 'node' => '33:1154' ),
-		'craftsmen_4'     => array( 'label' => 'Craftsmen video 4 — poster (optional)', 'w' => 1115, 'h' => 680, 'node' => '' ),
-		'craftsmen_5'     => array( 'label' => 'Craftsmen video 5 — poster (optional)', 'w' => 1115, 'h' => 680, 'node' => '' ),
+		// Meet the Craftsmen — founder portrait.
+		'craftsmen_portrait' => array( 'label' => 'Craftsmen — Lukas Bernauer portrait', 'w' => 668, 'h' => 568, 'node' => '64:510' ),
 
-		'contact'         => array( 'label' => 'Contact — image', 'w' => 574, 'h' => 543, 'node' => '33:1174' ),
+		// Craftsmen — three video tiles (posters optional).
+		'craftsmen_1'     => array( 'label' => 'Craftsmen video 1 — poster (optional)', 'w' => 400, 'h' => 500, 'node' => '64:512' ),
+		'craftsmen_2'     => array( 'label' => 'Craftsmen video 2 — poster (optional)', 'w' => 400, 'h' => 500, 'node' => '64:518' ),
+		'craftsmen_3'     => array( 'label' => 'Craftsmen video 3 — poster (optional)', 'w' => 400, 'h' => 500, 'node' => '64:524' ),
+
+		'contact'         => array( 'label' => 'Contact — image', 'w' => 574, 'h' => 543, 'node' => '64:558' ),
 	);
 }
 

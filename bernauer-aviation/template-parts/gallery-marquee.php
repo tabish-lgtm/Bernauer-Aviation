@@ -1,11 +1,13 @@
 <?php
 /**
- * Craftsmen — centered header + full-bleed horizontal video strip.
+ * Meet the Craftsmen — "Craftsmanship built from experience": founder bio +
+ * portrait, followed by a row of three craftsmanship video tiles.
+ * Figma node 64:499.
  *
- * Ships with five bundled craftsmanship clips (assets/videos). Each item can be
- * overridden per-slot in the Customizer with a self-hosted file or a
- * YouTube/Vimeo link. A poster (the matching craftsmen_* image slot, if
- * uploaded) shows with a play button; otherwise the video's first frame is used.
+ * Each tile defaults to a bundled clip and can be overridden per-slot in the
+ * Customizer with a self-hosted file or a YouTube/Vimeo link. A poster (the
+ * matching craftsmen_* image slot, if uploaded) shows with a play button;
+ * otherwise the video's first frame is used.
  *
  * @package Bernauer_Aviation
  */
@@ -29,8 +31,13 @@ function bernauer_video_embed( $url ) {
 	return '';
 }
 
-// Three tiles (per the Figma design). Each defaults to a bundled clip and can
-// be overridden per-slot in the Customizer with a file or YouTube/Vimeo link.
+$bio = array(
+	'What started with a passion for craftsmanship, leather and vehicle interiors has grown into a specialist business serving demanding interior projects across aviation, vehicles and furniture.',
+	'After training as an automotive upholsterer and gaining experience with renowned companies—including work on private aircraft interiors—Lukas founded Bernauer in 2015. His approach has remained simple: understand the project, work precisely and deliver interiors that stand up to the highest expectations.',
+	'Today, he brings hands-on craftsmanship, technical understanding and a strong focus on customer collaboration to every project.',
+);
+
+// Three tiles. Each defaults to a bundled clip and can be overridden per-slot.
 $items = array(
 	array( 'mod' => 'bernauer_video_1', 'file' => 'process-1.mp4',  'slot' => 'craftsmen_1' ),
 	array( 'mod' => 'bernauer_video_2', 'file' => 'process-4.mp4',  'slot' => 'craftsmen_2' ),
@@ -38,17 +45,33 @@ $items = array(
 );
 ?>
 <section class="section craftsmen" id="craftsmen">
-	<header class="craftsmen__header">
-		<p class="sec-header__kicker">Meet the Craftsmen</p>
-		<h2 class="sec-header__title craftsmen__title">The Experts Behind Every Exceptional Aircraft Interior</h2>
-	</header>
+	<div class="craftsmen__bio reveal">
+		<div class="craftsmen__intro">
+			<div class="craftsmen__intro-head">
+				<p class="sec-header__kicker">Meet the Craftsmen</p>
+				<h2 class="sec-header__title craftsmen__title">Craftsmanship built from experience.</h2>
+				<div class="craftsmen__body">
+					<?php foreach ( $bio as $para ) : ?>
+						<p><?php echo esc_html( $para ); ?></p>
+					<?php endforeach; ?>
+				</div>
+			</div>
+			<div class="craftsmen__person">
+				<p class="craftsmen__name">Lukas Bernauer</p>
+				<p class="craftsmen__role">Founder &amp; Managing Director</p>
+			</div>
+		</div>
+		<div class="craftsmen__portrait">
+			<?php bernauer_image( 'craftsmen_portrait', 'craftsmen__portrait-img' ); ?>
+		</div>
+	</div>
 
-	<div class="craftsmen__track" tabindex="0" aria-label="<?php esc_attr_e( 'Craftsmen videos — scroll horizontally', 'bernauer-aviation' ); ?>">
+	<div class="craftsmen__track" tabindex="0" aria-label="<?php esc_attr_e( 'Craftsmanship videos', 'bernauer-aviation' ); ?>">
 		<?php foreach ( $items as $item ) :
-			$override = get_theme_mod( $item['mod'], '' );
-			$video    = $override ? $override : get_theme_file_uri( 'assets/videos/' . $item['file'] );
-			$embed    = $override ? bernauer_video_embed( $override ) : '';
-			$poster   = bernauer_image_src( $item['slot'] );
+			$override   = get_theme_mod( $item['mod'], '' );
+			$video      = $override ? $override : get_theme_file_uri( 'assets/videos/' . $item['file'] );
+			$embed      = $override ? bernauer_video_embed( $override ) : '';
+			$poster     = bernauer_image_src( $item['slot'] );
 			$poster_url = $poster['is_placeholder'] ? '' : $poster['url'];
 			?>
 			<div class="craftsmen__item craftsmen__item--video">

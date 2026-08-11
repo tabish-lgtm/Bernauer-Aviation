@@ -5,8 +5,8 @@
  * @package Bernauer_Aviation
  */
 
-$hero_title = get_theme_mod( 'bernauer_hero_title', 'Crafting Comfort. Above Every Horizon.' );
-$hero_desc  = get_theme_mod( 'bernauer_hero_desc', 'Luxury aircraft interiors handcrafted with precision, premium materials, and uncompromising attention to detail.' );
+$hero_title = get_theme_mod( 'bernauer_hero_title', 'Aircraft upholstery & interior services' );
+$hero_desc  = get_theme_mod( 'bernauer_hero_desc', 'Refurbishment, restoration and custom manufacturing of premium aircraft interiors – trusted by MROs, completion centers and private operators.' );
 ?>
 <section class="hero" id="hero">
 	<div class="hero__content">

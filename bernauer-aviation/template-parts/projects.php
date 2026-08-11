@@ -6,14 +6,14 @@
  * @package Bernauer_Aviation
  */
 
-$filters = array( 'All Projects', 'Panels', 'Seats', 'Cockpits', 'Carpets', 'Linings', 'Curtains' );
+$filters = array( 'All Projects', 'Seats', 'Cockpits', 'Panels', 'Linings', 'Accessories', 'Carpets' );
 
 // Project data. Each project resolves its image from an existing slot and is
 // tagged with one or more filter categories.
 $projects = array(
 	array(
 		'file'  => 'cabin-panels.jpg',
-		'title' => 'Executive Jet Bulkhead Restoration',
+		'title' => 'Executive jet bulkhead restoration',
 		'desc'  => 'Expertly restored aircraft bulkheads featuring premium materials, precision craftsmanship, and seamless integration to enhance both cabin aesthetics and passenger comfort.',
 		'tags'  => array( 'Aircraft Interior', 'Premium Leather', 'Precision Crafted' ),
 		'cats'  => array( 'Panels' ),
@@ -62,10 +62,10 @@ $projects = array(
 	),
 	array(
 		'file'  => 'curtains.jpg',
-		'title' => 'Cabin Dividers & Curtain Fitting',
-		'desc'  => 'Bespoke cabin dividers and curtains crafted to complement the interior — tailored for privacy, light control, and a soft, premium finish.',
-		'tags'  => array( 'Curtains', 'Cabin Dividers', 'Bespoke' ),
-		'cats'  => array( 'Curtains' ),
+		'title' => 'Curtains, dividers & custom accessories',
+		'desc'  => 'Bespoke cabin dividers, curtains and sewn accessories crafted to complement the interior — tailored for privacy, light control, and a soft, premium finish.',
+		'tags'  => array( 'Accessories', 'Cabin Dividers', 'Bespoke' ),
+		'cats'  => array( 'Accessories' ),
 	),
 );
 
@@ -83,12 +83,12 @@ foreach ( $projects as $p ) {
 $first = $payload[0];
 ?>
 <section class="section projects" id="projects">
-	<header class="projects__header sec-header">
+	<header class="projects__header sec-header reveal">
 		<div class="sec-header__lead">
 			<p class="sec-header__kicker">Featured Projects</p>
-			<h2 class="sec-header__title">A Portfolio of Precision, Crafted for Aviation</h2>
+			<h2 class="sec-header__title">Experience in business aviation</h2>
 		</div>
-		<p class="sec-header__desc sec-header__desc--wide">Every project reflects our commitment to handcrafted quality, refined finishes, and bespoke aircraft interiors built for executive aviation.</p>
+		<p class="sec-header__desc sec-header__desc--wide">More than 13 years of hands-on aircraft interior experience across a wide range of business aircraft and cabin projects.</p>
 	</header>
 
 	<div class="projects__content" data-projects>

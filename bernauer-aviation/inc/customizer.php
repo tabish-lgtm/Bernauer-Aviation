@@ -21,10 +21,12 @@ function bernauer_customize_text( $wp_customize ) {
 	) );
 
 	$fields = array(
-		'bernauer_hero_title'    => array( 'label' => 'Hero title', 'default' => 'Crafting Comfort. Above Every Horizon.', 'type' => 'textarea' ),
-		'bernauer_hero_desc'     => array( 'label' => 'Hero description', 'default' => 'Luxury aircraft interiors handcrafted with precision, premium materials, and uncompromising attention to detail.', 'type' => 'textarea' ),
-		'bernauer_contact_title' => array( 'label' => 'Contact title', 'default' => 'Talk with Our Aviation Interior Specialists', 'type' => 'textarea' ),
-		'bernauer_contact_desc'  => array( 'label' => 'Contact description', 'default' => 'For private aviation clients, fleet operators, & premium aircraft interior solutions designed around comfort and craftsmanship.', 'type' => 'textarea' ),
+		'bernauer_hero_title'    => array( 'label' => 'Hero title', 'default' => 'Aircraft upholstery & interior services', 'type' => 'textarea' ),
+		'bernauer_hero_desc'     => array( 'label' => 'Hero description', 'default' => 'Refurbishment, restoration and custom manufacturing of premium aircraft interiors – trusted by MROs, completion centers and private operators.', 'type' => 'textarea' ),
+		'bernauer_contact_title' => array( 'label' => 'Contact title', 'default' => "Germany & Switzerland\nEuropean Project Support", 'type' => 'textarea' ),
+		'bernauer_contact_desc'  => array( 'label' => 'Contact description', 'default' => 'Two locations. One standard. One team. Providing our customers with reliable access to skilled aircraft interior support across Central Europe.', 'type' => 'textarea' ),
+		'bernauer_commit_title'  => array( 'label' => 'Commitment title', 'default' => 'Our Commitment', 'type' => 'text' ),
+		'bernauer_commit_desc'   => array( 'label' => 'Commitment description', 'default' => 'We are committed to continuous improvement and long-term partnerships. Your project — our responsibility.', 'type' => 'textarea' ),
 		'bernauer_phone'         => array( 'label' => 'Phone 1', 'default' => '+49 7742 927 88 30', 'type' => 'text' ),
 		'bernauer_phone2'        => array( 'label' => 'Phone 2', 'default' => '+41 43 508 02 26', 'type' => 'text' ),
 		'bernauer_email'         => array( 'label' => 'Email', 'default' => 'info@bernauer.design', 'type' => 'text' ),

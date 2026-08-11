@@ -24,6 +24,7 @@ function bernauer_icon( $name ) {
 	$open32 = '<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">';
 	$open24 = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">';
 	$open56 = '<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">';
+	$open20l = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">';
 
 	switch ( $name ) {
 		// --- Benefit glyphs (solid, Figma export) ---
@@ -39,6 +40,54 @@ function bernauer_icon( $name ) {
 			return $open32 . '<path d="M26.6445 19.9805C26.6445 19.9805 29.3115 22.7713 29.3115 24.9805C29.3115 27.1896 27.9779 27.9805 26.6445 27.9805C25.3113 27.9804 23.9785 27.1895 23.9785 24.9805C23.9785 22.7782 26.628 19.9978 26.6445 19.9805ZM12.3955 4.14455C13.9378 2.61826 16.4343 2.61822 17.9766 4.14455L27.3672 13.4395C27.5967 13.6667 27.7028 13.9908 27.6514 14.3096C27.5998 14.6285 27.397 14.9036 27.1074 15.0469L23.0791 17.0401L14.8457 25.1885C13.3034 26.7148 10.8069 26.7149 9.26465 25.1885L3.00391 18.9922C2.23137 18.2276 1.84376 17.221 1.84375 16.2158C1.84375 15.2107 2.23138 14.2041 3.00391 13.4395L12.3955 4.14455ZM16.5693 5.56643C15.8064 4.8114 14.5657 4.81145 13.8027 5.56643L4.41113 14.8613C4.30047 14.9709 4.2061 15.0899 4.12793 15.2158H22.2568L24.9648 13.875L16.5693 5.56643Z" fill="#09090B"/></svg>';
 		case 'finish':
 			return $open32 . '<path d="M15.25 15.1299V29.2763C14.7662 29.2049 14.2893 29.0657 13.834 28.8554L7.16699 25.7763C5.24118 24.8867 4.00005 22.902 4 20.7119V11.2881C4.00001 10.7152 4.08621 10.1567 4.24609 9.6279L15.25 15.1299ZM27.7529 9.6279C27.9129 10.1568 28 10.7151 28 11.2881V20.7119C27.9999 22.902 26.7588 24.8867 24.833 25.7763L18.166 28.8554C17.7107 29.0657 17.2338 29.2049 16.75 29.2763V15.1299L27.7529 9.6279ZM13.834 3.1445C15.213 2.50758 16.787 2.50758 18.166 3.1445L24.833 6.2236C25.793 6.66707 26.582 7.3832 27.1328 8.26071L16 13.8281L4.86621 8.26071C5.41702 7.383 6.20682 6.66714 7.16699 6.2236L13.834 3.1445Z" fill="#09090B"/></svg>';
+
+		// --- Benefits: large column glyphs (solid, fixed black) ---
+			case 'experience':
+				return $open32 . '<path d="M16 3.333c-4.05 0-7.333 3.283-7.333 7.334 0 2.86 1.638 5.336 4.026 6.545l-1.36 9.52a1 1 0 0 0 1.47 1.02L16 27.02l3.197 1.732a1 1 0 0 0 1.47-1.02l-1.36-9.52a7.334 7.334 0 0 0 4.026-6.545c0-4.05-3.283-7.334-7.333-7.334Zm0 2.667a4.667 4.667 0 1 1 0 9.333 4.667 4.667 0 0 1 0-9.333Z" fill="#09090B"/></svg>';
+			case 'document':
+				return $open32 . '<path fill-rule="evenodd" clip-rule="evenodd" d="M8 4.667A2.667 2.667 0 0 1 10.667 2h7.115c.707 0 1.385.281 1.885.781l4.885 4.886c.5.5.781 1.178.781 1.885v15.781A2.667 2.667 0 0 1 22.667 30H10.667A2.667 2.667 0 0 1 8 27.333V4.667ZM12 12a1 1 0 0 1 1-1h7a1 1 0 1 1 0 2h-7a1 1 0 0 1-1-1Zm1 4a1 1 0 1 0 0 2h7a1 1 0 1 0 0-2h-7Zm0 5a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2h-4Z" fill="#09090B"/></svg>';
+			case 'user-card':
+				return $open32 . '<path fill-rule="evenodd" clip-rule="evenodd" d="M4 8a3.333 3.333 0 0 1 3.333-3.333h17.334A3.333 3.333 0 0 1 28 8v16a3.333 3.333 0 0 1-3.333 3.333H7.333A3.333 3.333 0 0 1 4 24V8Zm8 2.667a2.667 2.667 0 1 1 5.333 0 2.667 2.667 0 0 1-5.333 0Zm2.667 4.666c-2.887 0-5.334 1.86-5.334 4.267 0 .368.299.667.667.667h9.333a.667.667 0 0 0 .667-.667c0-2.407-2.446-4.267-5.333-4.267ZM21 11a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2h-2Zm-1 5a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1Z" fill="#09090B"/></svg>';
+
+		// --- Small checklist glyphs (20px, currentColor line icons) ---
+			case 'search':
+				return $open20l . '<circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.6"/><path d="m20 20-4.5-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+			case 'folder':
+				return $open20l . '<path d="M3 7a2 2 0 0 1 2-2h3.5l2 2.5H19a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>';
+			case 'archive-check':
+				return $open20l . '<rect x="3" y="4" width="18" height="4" rx="1" stroke="currentColor" stroke-width="1.6"/><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8" stroke="currentColor" stroke-width="1.6"/><path d="m9.5 13.5 2 2 3.5-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+			case 'chat':
+				return $open20l . '<path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-4 3.5V16H6a2 2 0 0 1-2-2V6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>';
+			case 'clock':
+				return $open20l . '<circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+			case 'headphones':
+				return $open20l . '<path d="M4 13v-1a8 8 0 0 1 16 0v1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="3" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="17" y="13" width="4" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg>';
+			case 'users':
+				return $open20l . '<circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M16 5.2a3.2 3.2 0 0 1 0 5.6M17 14.2a5.5 5.5 0 0 1 3.5 4.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+			case 'shield-check':
+				return $open20l . '<path d="M12 3l7 2.5V11c0 4.4-3 7.7-7 9-4-1.3-7-4.6-7-9V5.5L12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+			case 'grid-circle':
+				return $open20l . '<circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><circle cx="9" cy="9" r="1.3" fill="currentColor"/><circle cx="15" cy="9" r="1.3" fill="currentColor"/><circle cx="9" cy="15" r="1.3" fill="currentColor"/><circle cx="15" cy="15" r="1.3" fill="currentColor"/></svg>';
+			case 'learning':
+				return $open20l . '<path d="M12 4 3 8.5l9 4.5 9-4.5L12 4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7 11v4.5c0 1 2.24 2.5 5 2.5s5-1.5 5-2.5V11" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>';
+			case 'globe':
+				return $open20l . '<circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 12h17M12 3.5c2.5 2.4 2.5 14.6 0 17M12 3.5c-2.5 2.4-2.5 14.6 0 17" stroke="currentColor" stroke-width="1.6"/></svg>';
+
+		// --- Workshop equipment glyphs (20px, currentColor line icons) ---
+			case 'cutter':
+				return $open20l . '<circle cx="8" cy="16" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M10 14 20 4M16 4h4v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+			case 'needle':
+				return $open20l . '<path d="M20 4 8 16m0 0-3 3m3-3-1.5-1.5M8 16l-1.5-1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="6" r="1.6" stroke="currentColor" stroke-width="1.6"/></svg>';
+			case 'robot':
+				return $open20l . '<rect x="5" y="8" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M12 4v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="4" r="1.4" fill="currentColor"/><circle cx="9.5" cy="13" r="1.2" fill="currentColor"/><circle cx="14.5" cy="13" r="1.2" fill="currentColor"/></svg>';
+			case 'spray':
+				return $open20l . '<rect x="7" y="8" width="8" height="12" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M9 8V6a2 2 0 0 1 2-2h1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M15 6h2M15 9h3M17 4v0M19 7v0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+			case 'sewing':
+				return $open20l . '<rect x="5" y="6" width="14" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M9 6v12M9 9h6M9 15h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+			case 'table':
+				return $open20l . '<path d="M3 8h18M4 8v11M20 8V19M4 8V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2M8 8v3M16 8v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+			case 'boxes':
+				return $open20l . '<rect x="4" y="11" width="7" height="8" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="11" width="7" height="8" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="8.5" y="4" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.6"/></svg>';
 
 		// --- Social (currentColor) ---
 		case 'instagram':
