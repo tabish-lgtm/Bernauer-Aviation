@@ -1,83 +1,99 @@
 <?php
 /**
- * Projects — section header, working filter tabs, and a filterable
- * project carousel (prev/next), matching the Figma design.
+ * Projects — "A Portfolio of Precision, Crafted for Aviation": section header,
+ * working filter tabs, and a filterable project carousel (prev/next) that
+ * supports both image and video projects. Figma node 184:410.
+ *
+ * Each project's media is either an image (assets/images/{file}) or a video
+ * (poster image + a self-hosted file or YouTube/Vimeo link). Copy is taken
+ * verbatim from the Figma design.
  *
  * @package Bernauer_Aviation
  */
 
-$filters = array( 'All Projects', 'Seats', 'Cockpits', 'Panels', 'Linings', 'Accessories', 'Carpets' );
+$filters = array( 'All Projects', 'Panels', 'Seats', 'Cockpits', 'Carpets', 'Linings', 'Accessories' );
 
-// Project data. Each project resolves its image from an existing slot and is
-// tagged with one or more filter categories.
+// One real project per category (seeded from Figma). `type` is image|video;
+// video projects add `video` (a self-hosted URL or YouTube/Vimeo link) and use
+// `file` as the poster frame.
 $projects = array(
 	array(
-		'file'  => 'cabin-panels.jpg',
-		'title' => 'Executive jet bulkhead restoration',
-		'desc'  => 'Expertly restored aircraft bulkheads featuring premium materials, precision craftsmanship, and seamless integration to enhance both cabin aesthetics and passenger comfort.',
-		'tags'  => array( 'Aircraft Interior', 'Premium Leather', 'Precision Crafted' ),
+		'type'  => 'image',
+		'file'  => 'proj-panels.jpg',
+		'title' => 'Executive Jet Side Panel Restoration',
+		'desc'  => 'Expertly restored aircraft side panels with premium materials, seamless finishes, and precision craftsmanship for a refined cabin experience.',
+		'tags'  => array( 'Cabin Side Panels', 'Custom Upholstery', 'Seamless Finishing' ),
 		'cats'  => array( 'Panels' ),
 	),
 	array(
-		'file'  => 'cabin-seating.jpg',
-		'title' => 'Executive Divan & Storage Seating',
-		'desc'  => 'A bespoke three-seat divan rebuilt with custom upholstery and integrated storage drawers — engineered for comfort, durability, and a refined cabin footprint.',
-		'tags'  => array( 'Cabin Seating', 'Custom Upholstery', 'Integrated Storage' ),
+		'type'  => 'image',
+		'file'  => 'proj-seats.jpg',
+		'title' => 'Luxury Aircraft Seat Refurbishment',
+		'desc'  => 'Aircraft seats refurbished with premium leather, custom foam shaping, and precision stitching for exceptional comfort and elegance.',
+		'tags'  => array( 'Seat Upholstery', 'Custom Foam', 'Fine Stitching' ),
 		'cats'  => array( 'Seats' ),
 	),
 	array(
-		'file'  => 'premium-leather.jpg',
-		'title' => 'Diamond-Stitched Executive Seats',
-		'desc'  => 'Hand-upholstered executive seats in full-grain leather with precision diamond stitching, delivering first-class comfort and a flawless, enduring finish.',
-		'tags'  => array( 'Premium Leather', 'Diamond Stitch', 'Handcrafted' ),
-		'cats'  => array( 'Seats' ),
-	),
-	array(
-		'file'  => 'cabin-refurbishment.jpg',
-		'title' => 'Cabin Headliner & Console Refurbishment',
-		'desc'  => 'Complete refinishing of cabin headliner and console components, combining luxury materials with meticulous attention to fit, finish, and functional detail.',
-		'tags'  => array( 'Headliner', 'Cabin Trim', 'Precision Crafted' ),
-		'cats'  => array( 'Linings' ),
-	),
-	array(
-		'file'  => 'hero-cabin.jpg',
-		'title' => 'Full Cabin Interior Transformation',
-		'desc'  => 'An end-to-end cabin transformation — seating, panels, and finishes reimagined with aviation-grade materials for a cohesive, bespoke executive interior.',
-		'tags'  => array( 'Full Cabin', 'Premium Materials', 'Bespoke' ),
-		'cats'  => array( 'Panels', 'Seats' ),
-	),
-	array(
-		'file'  => 'cockpit.jpg',
-		'title' => 'Cockpit Trim & Panel Refinishing',
-		'desc'  => 'Precision-refinished cockpit trim and console panels, upholstered for a flawless fit and a clean, durable finish around every instrument and control.',
-		'tags'  => array( 'Cockpit', 'Panel Fabrication', 'Precision Crafted' ),
+		'type'  => 'image',
+		'file'  => 'proj-cockpit.jpg',
+		'title' => 'Aircraft Cockpit Interior Refinement',
+		'desc'  => 'Cockpit interiors restored with meticulous craftsmanship, premium materials, and precision finishing to elevate both functionality and aesthetics.',
+		'tags'  => array( 'Flight Controls', 'Premium Trim', 'Handcrafted Finish' ),
 		'cats'  => array( 'Cockpits' ),
 	),
 	array(
-		'file'  => 'carpets.jpg',
-		'title' => 'Cabin Aisle & Carpet Fitting',
-		'desc'  => 'Custom-cut aisle runners and cabin carpeting in durable, aviation-grade materials — precisely fitted for a seamless, refined floor throughout the cabin.',
-		'tags'  => array( 'Carpets', 'Custom Fit', 'Aviation Grade' ),
+		'type'  => 'image',
+		'file'  => 'proj-carpets.jpg',
+		'title' => 'Luxury Aircraft Carpet Installation',
+		'desc'  => 'Premium aircraft carpeting precisely fitted using certified materials to enhance cabin comfort, reduce noise, and deliver a refined interior finish.',
+		'tags'  => array( 'Custom Fit', 'Aviation Certified', 'Precision Installed' ),
 		'cats'  => array( 'Carpets' ),
 	),
 	array(
-		'file'  => 'curtains.jpg',
-		'title' => 'Curtains, dividers & custom accessories',
-		'desc'  => 'Bespoke cabin dividers, curtains and sewn accessories crafted to complement the interior — tailored for privacy, light control, and a soft, premium finish.',
-		'tags'  => array( 'Accessories', 'Cabin Dividers', 'Bespoke' ),
+		'type'  => 'image',
+		'file'  => 'proj-linings.jpg',
+		'title' => 'Aircraft Interior Linings',
+		'desc'  => 'Precision refurbishment and upholstery of aircraft interior linings and panels — combining premium craftsmanship, precise fit and consistently high-quality finishes.',
+		'tags'  => array( 'Cabin Furniture', 'Wood Veneers', 'Precision Inlays' ),
+		'cats'  => array( 'Linings' ),
+	),
+	array(
+		'type'  => 'image',
+		'file'  => 'proj-accessories.jpg',
+		'title' => 'Aircraft Interior Accessories',
+		'desc'  => 'Custom-made and refurbished aircraft accessories — including curtains, bags, covers and tailored textile components, crafted to match the cabin interior with precision and attention to detail.',
+		'tags'  => array( 'Cabin Storage', 'Privacy Systems', 'Bespoke Finishes' ),
 		'cats'  => array( 'Accessories' ),
 	),
 );
 
-// Resolve image URLs for the JSON payload.
+/**
+ * Resolve a project's media URL: bundled file if present, else a placeholder.
+ *
+ * @param string $file Image file name in assets/images.
+ * @return string URL or data URI.
+ */
+function bernauer_project_media( $file ) {
+	if ( $file && file_exists( get_theme_file_path( 'assets/images/' . $file ) ) ) {
+		return get_theme_file_uri( 'assets/images/' . $file );
+	}
+	return bernauer_placeholder_uri( 1312, 600, 'Project' );
+}
+
+// Build the JSON payload consumed by the carousel JS.
 $payload = array();
 foreach ( $projects as $p ) {
+	$type       = isset( $p['type'] ) ? $p['type'] : 'image';
+	$video_mod  = isset( $p['video'] ) ? get_theme_mod( $p['video'], '' ) : '';
 	$payload[] = array(
+		'type'  => $type,
 		'title' => $p['title'],
 		'desc'  => $p['desc'],
 		'tags'  => $p['tags'],
 		'cats'  => $p['cats'],
-		'img'   => esc_url( get_theme_file_uri( 'assets/images/' . $p['file'] ) ),
+		'img'   => esc_url( bernauer_project_media( $p['file'] ) ),
+		'video' => $video_mod ? esc_url( $video_mod ) : '',
+		'embed' => $video_mod ? bernauer_video_embed( $video_mod ) : '',
 	);
 }
 $first = $payload[0];
@@ -86,9 +102,9 @@ $first = $payload[0];
 	<header class="projects__header sec-header reveal">
 		<div class="sec-header__lead">
 			<p class="sec-header__kicker">Featured Projects</p>
-			<h2 class="sec-header__title">Experience in business aviation</h2>
+			<h2 class="sec-header__title">A Portfolio of Precision, Crafted for Aviation</h2>
 		</div>
-		<p class="sec-header__desc sec-header__desc--wide">More than 13 years of hands-on aircraft interior experience across a wide range of business aircraft and cabin projects.</p>
+		<p class="sec-header__desc sec-header__desc--wide">Every project reflects our commitment to handcrafted quality, refined finishes, and bespoke aircraft interiors built for executive aviation.</p>
 	</header>
 
 	<div class="projects__content" data-projects>
@@ -103,9 +119,19 @@ $first = $payload[0];
 		</div>
 
 		<div class="project" data-project-stage>
-			<div class="project__media">
+			<div class="project__media" data-project-media>
 				<img class="project__img" data-project-img src="<?php echo esc_url( $first['img'] ); ?>" alt="<?php echo esc_attr( $first['title'] ); ?>" width="1312" height="600" />
+				<button type="button" class="project__play<?php echo 'video' === $first['type'] ? '' : ' is-hidden'; ?>" data-project-play aria-label="<?php esc_attr_e( 'Play video', 'bernauer-aviation' ); ?>">
+					<?php echo bernauer_play_button(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				</button>
 			</div>
+
+			<div class="project__nav">
+				<button type="button" class="project__nav-btn" data-project-prev aria-label="<?php esc_attr_e( 'Previous project', 'bernauer-aviation' ); ?>"><?php echo bernauer_icon( 'arrow-previous' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></button>
+				<button type="button" class="project__nav-btn" data-project-next aria-label="<?php esc_attr_e( 'Next project', 'bernauer-aviation' ); ?>"><?php echo bernauer_icon( 'arrow-forward' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></button>
+				<p class="project__count" data-project-count aria-live="polite"></p>
+			</div>
+
 			<div class="project__info-row">
 				<div class="project__info">
 					<h3 class="project__title" data-project-title><?php echo esc_html( $first['title'] ); ?></h3>
@@ -116,14 +142,6 @@ $first = $payload[0];
 						<span class="project__tag"><?php echo esc_html( $tag ); ?></span>
 					<?php endforeach; ?>
 				</div>
-			</div>
-
-			<div class="project__footer">
-				<div class="project__nav">
-					<button type="button" class="project__nav-btn" data-project-prev aria-label="<?php esc_attr_e( 'Previous project', 'bernauer-aviation' ); ?>"><?php echo bernauer_icon( 'arrow-previous' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></button>
-					<button type="button" class="project__nav-btn" data-project-next aria-label="<?php esc_attr_e( 'Next project', 'bernauer-aviation' ); ?>"><?php echo bernauer_icon( 'arrow-forward' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></button>
-				</div>
-				<p class="project__count" data-project-count aria-live="polite"></p>
 			</div>
 
 			<p class="project__empty" data-project-empty hidden>More projects in this category coming soon.</p>

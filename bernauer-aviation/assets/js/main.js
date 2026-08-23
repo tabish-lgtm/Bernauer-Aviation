@@ -80,7 +80,9 @@
 			var all = [];
 			try { all = JSON.parse(dataEl.textContent) || []; } catch (e) { all = []; }
 
+			var mediaEl = root.querySelector("[data-project-media]");
 			var imgEl = root.querySelector("[data-project-img]");
+			var playBtn = root.querySelector("[data-project-play]");
 			var titleEl = root.querySelector("[data-project-title]");
 			var descEl = root.querySelector("[data-project-desc]");
 			var tagsEl = root.querySelector("[data-project-tags]");
@@ -94,17 +96,26 @@
 			var filtered = all.slice();
 			var index = 0;
 
+			function resetMedia() {
+				if (!mediaEl) return;
+				var inj = mediaEl.querySelector("video, iframe");
+				if (inj) inj.remove();
+				if (imgEl) imgEl.style.display = "";
+			}
+
 			function render() {
 				var hasItems = filtered.length > 0;
 				if (emptyEl) emptyEl.hidden = hasItems;
-				["project__media", "project__info-row", "project__footer"].forEach(function (c) {
+				["project__media", "project__nav", "project__info-row"].forEach(function (c) {
 					var el = stageEl.querySelector("." + c);
 					if (el) el.style.display = hasItems ? "" : "none";
 				});
 				if (!hasItems) return;
 
 				var p = filtered[index];
+				resetMedia();
 				if (imgEl) { imgEl.src = p.img; imgEl.alt = p.title; }
+				if (playBtn) playBtn.classList.toggle("is-hidden", p.type !== "video");
 				if (titleEl) titleEl.textContent = p.title;
 				if (descEl) descEl.textContent = p.desc;
 				if (tagsEl) {
@@ -151,6 +162,33 @@
 				index = (index + 1) % filtered.length;
 				render();
 			});
+			if (playBtn) playBtn.addEventListener("click", function () {
+				var p = filtered[index];
+				if (!p || p.type !== "video") return;
+				resetMedia();
+				if (imgEl) imgEl.style.display = "none";
+				playBtn.classList.add("is-hidden");
+				if (p.embed) {
+					var iframe = document.createElement("iframe");
+					iframe.setAttribute("src", p.embed);
+					iframe.setAttribute("title", p.title);
+					iframe.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
+					iframe.setAttribute("allowfullscreen", "");
+					iframe.className = "project__iframe";
+					mediaEl.appendChild(iframe);
+				} else if (p.video) {
+					var video = document.createElement("video");
+					video.className = "project__video";
+					video.setAttribute("controls", "");
+					video.setAttribute("playsinline", "");
+					video.setAttribute("autoplay", "");
+					video.src = p.video;
+					mediaEl.appendChild(video);
+					video.addEventListener("pause", function () {
+						if (filtered[index] && filtered[index].type === "video") playBtn.classList.remove("is-hidden");
+					}, { once: true });
+				}
+			});
 			render();
 		})();
 
@@ -182,10 +220,10 @@
 				var src = host.getAttribute("data-embed");
 				var iframe = document.createElement("iframe");
 				iframe.setAttribute("src", src);
-				iframe.setAttribute("title", "Craftsmen video");
+				iframe.setAttribute("title", "Bernauer video");
 				iframe.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
 				iframe.setAttribute("allowfullscreen", "");
-				iframe.className = "craftsmen__iframe";
+				iframe.className = "media-iframe";
 				host.innerHTML = "";
 				host.appendChild(iframe);
 			});

@@ -48,6 +48,9 @@ function bernauer_image_slots() {
 		// Meet the Craftsmen — founder portrait.
 		'craftsmen_portrait' => array( 'label' => 'Craftsmen — Lukas Bernauer portrait', 'w' => 668, 'h' => 568, 'node' => '64:510', 'file' => 'portrait.jpg' ),
 
+		// Behind Bernauer Design — video poster frame.
+		'behind_poster'   => array( 'label' => 'Behind Bernauer Design — video poster', 'w' => 636, 'h' => 768, 'node' => '184:586', 'file' => 'behind-poster.jpg' ),
+
 		// Craftsmen — three video tiles (posters optional).
 		'craftsmen_1'     => array( 'label' => 'Craftsmen video 1 — poster (optional)', 'w' => 400, 'h' => 500, 'node' => '64:512' ),
 		'craftsmen_2'     => array( 'label' => 'Craftsmen video 2 — poster (optional)', 'w' => 400, 'h' => 500, 'node' => '64:518' ),

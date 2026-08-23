@@ -82,17 +82,6 @@ $phone_href = 'tel:' . preg_replace( '/[^0-9+]/', '', $phone );
 		</div>
 	</div>
 
-	<?php if ( $commit_title || $commit_desc ) : ?>
-		<div class="footer__commit reveal">
-			<?php if ( $commit_title ) : ?>
-				<h3 class="footer__commit-title"><?php echo esc_html( $commit_title ); ?></h3>
-			<?php endif; ?>
-			<?php if ( $commit_desc ) : ?>
-				<p class="footer__commit-desc"><?php echo esc_html( $commit_desc ); ?></p>
-			<?php endif; ?>
-		</div>
-	<?php endif; ?>
-
 	<div class="footer__bar">
 		<p class="footer__copy"><?php echo esc_html( $copyright ); ?></p>
 

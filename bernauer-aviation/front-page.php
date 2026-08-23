@@ -12,8 +12,7 @@ get_template_part( 'template-parts/what-we-do' );
 get_template_part( 'template-parts/projects' );
 get_template_part( 'template-parts/benefits' );
 get_template_part( 'template-parts/cta-band' );
-get_template_part( 'template-parts/workshop' );
-get_template_part( 'template-parts/onsite' );
-get_template_part( 'template-parts/gallery-marquee' );
+get_template_part( 'template-parts/oneteam' );
+get_template_part( 'template-parts/behind-bernauer' );
 
 get_footer();

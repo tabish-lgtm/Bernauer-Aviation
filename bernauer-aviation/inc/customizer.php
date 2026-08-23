@@ -21,7 +21,7 @@ function bernauer_customize_text( $wp_customize ) {
 	) );
 
 	$fields = array(
-		'bernauer_hero_title'    => array( 'label' => 'Hero title', 'default' => 'Aircraft upholstery & interior services', 'type' => 'textarea' ),
+		'bernauer_hero_title'    => array( 'label' => 'Hero title', 'default' => 'Aircraft Upholstery & Interior Services', 'type' => 'textarea' ),
 		'bernauer_hero_desc'     => array( 'label' => 'Hero description', 'default' => 'Refurbishment, restoration and custom manufacturing of premium aircraft interiors – trusted by MROs, completion centers and private operators.', 'type' => 'textarea' ),
 		'bernauer_contact_title' => array( 'label' => 'Contact title', 'default' => "Germany & Switzerland\nEuropean Project Support", 'type' => 'textarea' ),
 		'bernauer_contact_desc'  => array( 'label' => 'Contact description', 'default' => 'Two locations. One standard. One team. Providing our customers with reliable access to skilled aircraft interior support across Central Europe.', 'type' => 'textarea' ),
@@ -39,8 +39,10 @@ function bernauer_customize_text( $wp_customize ) {
 		'bernauer_video_3'       => array( 'label' => 'Craftsmen video 3 URL (overrides bundled Panels)', 'default' => '', 'type' => 'url' ),
 		'bernauer_video_4'       => array( 'label' => 'Craftsmen video 4 URL (overrides bundled Process 05)', 'default' => '', 'type' => 'url' ),
 		'bernauer_video_5'       => array( 'label' => 'Craftsmen video 5 URL (overrides bundled Process 10)', 'default' => '', 'type' => 'url' ),
+		'bernauer_behind_video'  => array( 'label' => 'Behind Bernauer Design — video URL (MP4 or YouTube/Vimeo)', 'default' => '', 'type' => 'url' ),
 		'bernauer_instagram'     => array( 'label' => 'Instagram URL', 'default' => 'https://www.instagram.com/bernauer.design/', 'type' => 'url' ),
 		'bernauer_facebook'      => array( 'label' => 'Facebook URL', 'default' => 'https://www.facebook.com/bernauer.design/', 'type' => 'url' ),
+		'bernauer_linkedin'      => array( 'label' => 'LinkedIn URL (founder card)', 'default' => 'https://www.linkedin.com/', 'type' => 'url' ),
 	);
 
 	foreach ( $fields as $id => $field ) {

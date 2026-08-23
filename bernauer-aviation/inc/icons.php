@@ -49,6 +49,20 @@ function bernauer_icon( $name ) {
 			case 'user-card':
 				return $open32 . '<path fill-rule="evenodd" clip-rule="evenodd" d="M4 8a3.333 3.333 0 0 1 3.333-3.333h17.334A3.333 3.333 0 0 1 28 8v16a3.333 3.333 0 0 1-3.333 3.333H7.333A3.333 3.333 0 0 1 4 24V8Zm8 2.667a2.667 2.667 0 1 1 5.333 0 2.667 2.667 0 0 1-5.333 0Zm2.667 4.666c-2.887 0-5.334 1.86-5.334 4.267 0 .368.299.667.667.667h9.333a.667.667 0 0 0 .667-.667c0-2.407-2.446-4.267-5.333-4.267ZM21 11a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2h-2Zm-1 5a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1Z" fill="#09090B"/></svg>';
 
+		// --- One Team band badge glyphs (outline, currentColor, ~40px) ---
+			case 'warehouse':
+				return '<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 17 20 8l14 9v15a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V17Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 34V22h12v12" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 26h12M14 30h12" stroke="currentColor" stroke-width="1.4"/></svg>';
+			case 'people-group':
+				return '<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="14" r="3.4" stroke="currentColor" stroke-width="1.5"/><circle cx="11" cy="16" r="2.8" stroke="currentColor" stroke-width="1.5"/><circle cx="29" cy="16" r="2.8" stroke="currentColor" stroke-width="1.5"/><path d="M14 27a6 6 0 0 1 12 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M6 27a5 5 0 0 1 6-4.9M34 27a5 5 0 0 0-6-4.9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
+
+		// --- Why-choose column glyphs (outline, currentColor, ~40px) ---
+			case 'plane-line':
+				return '<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 5c1.1 0 2 1.4 2 3.2v6.1l11 6.6v2.5l-11-3.2v6.3l3 2.2v2.1l-5-1.4-5 1.4v-2.1l3-2.2v-6.3l-11 3.2v-2.5l11-6.6V8.2C18 6.4 18.9 5 20 5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>';
+			case 'clipboard-check':
+				return '<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="9" y="8" width="22" height="26" rx="2.5" stroke="currentColor" stroke-width="1.4"/><path d="M15 8V6.5A2.5 2.5 0 0 1 17.5 4h5A2.5 2.5 0 0 1 25 6.5V8" stroke="currentColor" stroke-width="1.4"/><path d="M14.5 20.5l3 3 6-6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 28h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>';
+			case 'people-chat':
+				return '<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="14" cy="14" r="4" stroke="currentColor" stroke-width="1.4"/><circle cx="26" cy="14" r="4" stroke="currentColor" stroke-width="1.4"/><path d="M6 31a8 8 0 0 1 16 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M22 24.5A8 8 0 0 1 34 31" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M15 6.5A5 5 0 0 1 25 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>';
+
 		// --- Small checklist glyphs (20px, currentColor line icons) ---
 			case 'search':
 				return $open20l . '<circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.6"/><path d="m20 20-4.5-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';

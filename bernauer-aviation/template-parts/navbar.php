@@ -20,8 +20,11 @@
 		<?php endif; ?>
 	</a>
 
-	<nav class="navbar__social" aria-label="<?php esc_attr_e( 'Social links', 'bernauer-aviation' ); ?>">
-		<a class="navbar__icon" href="<?php echo esc_url( get_theme_mod( 'bernauer_instagram', 'https://www.instagram.com/bernauer.design/' ) ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><?php echo bernauer_icon( 'instagram' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
-		<a class="navbar__icon" href="<?php echo esc_url( get_theme_mod( 'bernauer_facebook', 'https://www.facebook.com/bernauer.design/' ) ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><?php echo bernauer_icon( 'facebook' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
-	</nav>
+	<div class="navbar__actions">
+		<nav class="navbar__social" aria-label="<?php esc_attr_e( 'Social links', 'bernauer-aviation' ); ?>">
+			<a class="navbar__icon" href="<?php echo esc_url( get_theme_mod( 'bernauer_instagram', 'https://www.instagram.com/bernauer.design/' ) ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><?php echo bernauer_icon( 'instagram' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
+			<a class="navbar__icon" href="<?php echo esc_url( get_theme_mod( 'bernauer_facebook', 'https://www.facebook.com/bernauer.design/' ) ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><?php echo bernauer_icon( 'facebook' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
+		</nav>
+		<a class="navbar__cta" href="#contact"><?php esc_html_e( 'Contact Us', 'bernauer-aviation' ); ?></a>
+	</div>
 </header>

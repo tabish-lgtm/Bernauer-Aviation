@@ -19,6 +19,8 @@ require_once get_theme_file_path( 'inc/images.php' );
 require_once get_theme_file_path( 'inc/customizer.php' );
 // Inline SVG icon set (exact Figma glyphs).
 require_once get_theme_file_path( 'inc/icons.php' );
+// Shared media helpers (play button, video embed parsing).
+require_once get_theme_file_path( 'inc/media.php' );
 
 /**
  * Theme supports.
