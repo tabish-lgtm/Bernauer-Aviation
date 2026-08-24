@@ -13,59 +13,72 @@
 
 $filters = array( 'All Projects', 'Panels', 'Seats', 'Cockpits', 'Carpets', 'Linings', 'Accessories' );
 
-// One real project per category (seeded from Figma). `type` is image|video;
-// video projects add `video` (a self-hosted URL or YouTube/Vimeo link) and use
-// `file` as the poster frame.
-$projects = array(
+// The full portfolio pulled from Figma. Each category shares its copy across
+// its numbered photos (proj-{slug}-{n}.jpg), matching the Figma project frames.
+$categories = array(
 	array(
-		'type'  => 'image',
-		'file'  => 'proj-panels.jpg',
+		'cat'   => 'Panels',
+		'slug'  => 'panels',
+		'count' => 7,
 		'title' => 'Executive Jet Side Panel Restoration',
 		'desc'  => 'Expertly restored aircraft side panels with premium materials, seamless finishes, and precision craftsmanship for a refined cabin experience.',
 		'tags'  => array( 'Cabin Side Panels', 'Custom Upholstery', 'Seamless Finishing' ),
-		'cats'  => array( 'Panels' ),
 	),
 	array(
-		'type'  => 'image',
-		'file'  => 'proj-seats.jpg',
+		'cat'   => 'Seats',
+		'slug'  => 'seats',
+		'count' => 14,
 		'title' => 'Luxury Aircraft Seat Refurbishment',
 		'desc'  => 'Aircraft seats refurbished with premium leather, custom foam shaping, and precision stitching for exceptional comfort and elegance.',
 		'tags'  => array( 'Seat Upholstery', 'Custom Foam', 'Fine Stitching' ),
-		'cats'  => array( 'Seats' ),
 	),
 	array(
-		'type'  => 'image',
-		'file'  => 'proj-cockpit.jpg',
+		'cat'   => 'Cockpits',
+		'slug'  => 'cockpit',
+		'count' => 9,
 		'title' => 'Aircraft Cockpit Interior Refinement',
 		'desc'  => 'Cockpit interiors restored with meticulous craftsmanship, premium materials, and precision finishing to elevate both functionality and aesthetics.',
 		'tags'  => array( 'Flight Controls', 'Premium Trim', 'Handcrafted Finish' ),
-		'cats'  => array( 'Cockpits' ),
 	),
 	array(
-		'type'  => 'image',
-		'file'  => 'proj-carpets.jpg',
+		'cat'   => 'Carpets',
+		'slug'  => 'carpets',
+		'count' => 3,
 		'title' => 'Luxury Aircraft Carpet Installation',
 		'desc'  => 'Premium aircraft carpeting precisely fitted using certified materials to enhance cabin comfort, reduce noise, and deliver a refined interior finish.',
 		'tags'  => array( 'Custom Fit', 'Aviation Certified', 'Precision Installed' ),
-		'cats'  => array( 'Carpets' ),
 	),
 	array(
-		'type'  => 'image',
-		'file'  => 'proj-linings.jpg',
+		'cat'   => 'Linings',
+		'slug'  => 'linings',
+		'count' => 12,
 		'title' => 'Aircraft Interior Linings',
 		'desc'  => 'Precision refurbishment and upholstery of aircraft interior linings and panels — combining premium craftsmanship, precise fit and consistently high-quality finishes.',
 		'tags'  => array( 'Cabin Furniture', 'Wood Veneers', 'Precision Inlays' ),
-		'cats'  => array( 'Linings' ),
 	),
 	array(
-		'type'  => 'image',
-		'file'  => 'proj-accessories.jpg',
+		'cat'   => 'Accessories',
+		'slug'  => 'accessories',
+		'count' => 6,
 		'title' => 'Aircraft Interior Accessories',
 		'desc'  => 'Custom-made and refurbished aircraft accessories — including curtains, bags, covers and tailored textile components, crafted to match the cabin interior with precision and attention to detail.',
 		'tags'  => array( 'Cabin Storage', 'Privacy Systems', 'Bespoke Finishes' ),
-		'cats'  => array( 'Accessories' ),
 	),
 );
+
+$projects = array();
+foreach ( $categories as $c ) {
+	for ( $n = 1; $n <= $c['count']; $n++ ) {
+		$projects[] = array(
+			'type'  => 'image',
+			'file'  => 'proj-' . $c['slug'] . '-' . $n . '.jpg',
+			'title' => $c['title'],
+			'desc'  => $c['desc'],
+			'tags'  => $c['tags'],
+			'cats'  => array( $c['cat'] ),
+		);
+	}
+}
 
 /**
  * Resolve a project's media URL: bundled file if present, else a placeholder.
