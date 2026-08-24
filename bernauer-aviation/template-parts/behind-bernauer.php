@@ -12,7 +12,7 @@
 $video    = get_theme_mod( 'bernauer_behind_video', 'https://vimeo.com/1220775721' );
 $embed    = $video ? bernauer_video_embed( $video ) : '';
 $poster   = bernauer_image_src( 'behind_poster' );
-$linkedin = get_theme_mod( 'bernauer_linkedin', 'https://www.linkedin.com/' );
+$linkedin = get_theme_mod( 'bernauer_linkedin', 'https://www.linkedin.com/in/lukas-bernauer-/' );
 ?>
 <section class="section bb" id="behind">
 	<h2 class="bb__heading">Behind Bernauer Design</h2>

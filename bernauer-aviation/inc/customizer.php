@@ -42,7 +42,7 @@ function bernauer_customize_text( $wp_customize ) {
 		'bernauer_behind_video'  => array( 'label' => 'Behind Bernauer Design — video URL (MP4 or YouTube/Vimeo)', 'default' => 'https://vimeo.com/1220775721', 'type' => 'url' ),
 		'bernauer_instagram'     => array( 'label' => 'Instagram URL', 'default' => 'https://www.instagram.com/bernauer.design/', 'type' => 'url' ),
 		'bernauer_facebook'      => array( 'label' => 'Facebook URL', 'default' => 'https://www.facebook.com/bernauer.design/', 'type' => 'url' ),
-		'bernauer_linkedin'      => array( 'label' => 'LinkedIn URL (founder card)', 'default' => 'https://www.linkedin.com/', 'type' => 'url' ),
+		'bernauer_linkedin'      => array( 'label' => 'LinkedIn URL (founder card)', 'default' => 'https://www.linkedin.com/in/lukas-bernauer-/', 'type' => 'url' ),
 	);
 
 	foreach ( $fields as $id => $field ) {
