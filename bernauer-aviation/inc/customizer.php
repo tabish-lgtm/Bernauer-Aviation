@@ -1,0 +1,64 @@
+<?php
+/**
+ * Customizer — editable text, contact details, and social links.
+ *
+ * @package Bernauer_Aviation
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * Register text settings.
+ *
+ * @param WP_Customize_Manager $wp_customize Customizer.
+ */
+function bernauer_customize_text( $wp_customize ) {
+	$wp_customize->add_section( 'bernauer_content', array(
+		'title'    => __( 'Bernauer Content', 'bernauer-aviation' ),
+		'priority' => 28,
+	) );
+
+	$fields = array(
+		'bernauer_hero_title'    => array( 'label' => 'Hero title', 'default' => 'Aircraft Upholstery & Interior Services', 'type' => 'textarea' ),
+		'bernauer_hero_desc'     => array( 'label' => 'Hero description', 'default' => 'Refurbishment, restoration and custom manufacturing of premium aircraft interiors – trusted by MROs, completion centers and private operators.', 'type' => 'textarea' ),
+		'bernauer_contact_title' => array( 'label' => 'Contact title', 'default' => "Germany & Switzerland\nEuropean Project Support", 'type' => 'textarea' ),
+		'bernauer_contact_desc'  => array( 'label' => 'Contact description', 'default' => 'Two locations. One standard. One team. Providing our customers with reliable access to skilled aircraft interior support across Central Europe.', 'type' => 'textarea' ),
+		'bernauer_commit_title'  => array( 'label' => 'Commitment title', 'default' => 'Our Commitment', 'type' => 'text' ),
+		'bernauer_commit_desc'   => array( 'label' => 'Commitment description', 'default' => 'We are committed to continuous improvement and long-term partnerships. Your project — our responsibility.', 'type' => 'textarea' ),
+		'bernauer_phone'         => array( 'label' => 'Phone 1', 'default' => '+49 7742 927 88 30', 'type' => 'text' ),
+		'bernauer_phone2'        => array( 'label' => 'Phone 2', 'default' => '+41 43 508 02 26', 'type' => 'text' ),
+		'bernauer_email'         => array( 'label' => 'Email', 'default' => 'info@bernauer.design', 'type' => 'text' ),
+		'bernauer_address'       => array( 'label' => 'Address', 'default' => "Weberstraße 10a\n79801 Hohentengen-Lienheim\nDeutschland", 'type' => 'textarea' ),
+		'bernauer_map'           => array( 'label' => 'Map link URL (address "View on map")', 'default' => 'https://www.google.com/maps/place/Bernauer+Design+-+Polster+%26+Taschen+%22Swiss+Made%22/@47.565653,8.44304,13z/data=!4m6!3m5!1s0x47907786b3c3375d:0x9a4b4dd068a2d55b!8m2!3d47.5749143!4d8.5111897!16s%2Fg%2F11w9877cr4?hl=de', 'type' => 'url' ),
+		'bernauer_map_embed'     => array( 'label' => 'Map embed URL (footer iframe)', 'default' => 'https://maps.google.com/maps?q=47.5749143,8.5111897&z=15&hl=de&output=embed', 'type' => 'url' ),
+		'bernauer_copyright'     => array( 'label' => 'Copyright', 'default' => '© 2026 Bernauer Aviation, Inc.', 'type' => 'text' ),
+		'bernauer_video_1'       => array( 'label' => 'Craftsmen video 1 URL (overrides bundled Process 01)', 'default' => '', 'type' => 'url' ),
+		'bernauer_video_2'       => array( 'label' => 'Craftsmen video 2 URL (overrides bundled Process 03)', 'default' => '', 'type' => 'url' ),
+		'bernauer_video_3'       => array( 'label' => 'Craftsmen video 3 URL (overrides bundled Panels)', 'default' => '', 'type' => 'url' ),
+		'bernauer_video_4'       => array( 'label' => 'Craftsmen video 4 URL (overrides bundled Process 05)', 'default' => '', 'type' => 'url' ),
+		'bernauer_video_5'       => array( 'label' => 'Craftsmen video 5 URL (overrides bundled Process 10)', 'default' => '', 'type' => 'url' ),
+		'bernauer_behind_video'  => array( 'label' => 'Behind Bernauer Design — video URL (MP4 or YouTube/Vimeo)', 'default' => 'https://vimeo.com/1220775721', 'type' => 'url' ),
+		'bernauer_video_panels'  => array( 'label' => 'Projects — Panels video URL (YouTube/Vimeo, empty = image only)', 'default' => 'https://vimeo.com/1220782225', 'type' => 'url' ),
+		'bernauer_video_seats'   => array( 'label' => 'Projects — Seats video URL (YouTube/Vimeo, empty = image only)', 'default' => 'https://vimeo.com/1220782252', 'type' => 'url' ),
+		'bernauer_instagram'     => array( 'label' => 'Instagram URL', 'default' => 'https://www.instagram.com/bernauer.design/', 'type' => 'url' ),
+		'bernauer_facebook'      => array( 'label' => 'Facebook URL', 'default' => 'https://www.facebook.com/bernauer.design/', 'type' => 'url' ),
+		'bernauer_linkedin'      => array( 'label' => 'LinkedIn URL (founder card)', 'default' => 'https://www.linkedin.com/in/lukas-bernauer-/', 'type' => 'url' ),
+	);
+
+	foreach ( $fields as $id => $field ) {
+		$sanitize = 'url' === $field['type'] ? 'esc_url_raw' : ( 'textarea' === $field['type'] ? 'sanitize_textarea_field' : 'sanitize_text_field' );
+		$wp_customize->add_setting( $id, array(
+			'default'           => $field['default'],
+			'sanitize_callback' => $sanitize,
+			'transport'         => 'refresh',
+		) );
+		$wp_customize->add_control( $id, array(
+			'label'   => $field['label'],
+			'section' => 'bernauer_content',
+			'type'    => 'textarea' === $field['type'] ? 'textarea' : 'text',
+		) );
+	}
+}
+add_action( 'customize_register', 'bernauer_customize_text' );
