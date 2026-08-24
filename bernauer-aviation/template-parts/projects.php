@@ -23,6 +23,7 @@ $categories = array(
 		'title' => 'Executive Jet Side Panel Restoration',
 		'desc'  => 'Expertly restored aircraft side panels with premium materials, seamless finishes, and precision craftsmanship for a refined cabin experience.',
 		'tags'  => array( 'Cabin Side Panels', 'Custom Upholstery', 'Seamless Finishing' ),
+		'video' => get_theme_mod( 'bernauer_video_panels', 'https://vimeo.com/1220782225' ),
 	),
 	array(
 		'cat'   => 'Seats',
@@ -31,6 +32,7 @@ $categories = array(
 		'title' => 'Luxury Aircraft Seat Refurbishment',
 		'desc'  => 'Aircraft seats refurbished with premium leather, custom foam shaping, and precision stitching for exceptional comfort and elegance.',
 		'tags'  => array( 'Seat Upholstery', 'Custom Foam', 'Fine Stitching' ),
+		'video' => get_theme_mod( 'bernauer_video_seats', 'https://vimeo.com/1220782252' ),
 	),
 	array(
 		'cat'   => 'Cockpits',
@@ -68,10 +70,15 @@ $categories = array(
 
 $projects = array();
 foreach ( $categories as $c ) {
+	$cat_video = isset( $c['video'] ) ? $c['video'] : '';
 	for ( $n = 1; $n <= $c['count']; $n++ ) {
+		// The first project of a category with a video plays that clip
+		// (its photo becomes the poster).
+		$is_video = ( 1 === $n && $cat_video );
 		$projects[] = array(
-			'type'  => 'image',
+			'type'  => $is_video ? 'video' : 'image',
 			'file'  => 'proj-' . $c['slug'] . '-' . $n . '.jpg',
+			'video' => $is_video ? $cat_video : '',
 			'title' => $c['title'],
 			'desc'  => $c['desc'],
 			'tags'  => $c['tags'],
@@ -96,8 +103,8 @@ function bernauer_project_media( $file ) {
 // Build the JSON payload consumed by the carousel JS.
 $payload = array();
 foreach ( $projects as $p ) {
-	$type       = isset( $p['type'] ) ? $p['type'] : 'image';
-	$video_mod  = isset( $p['video'] ) ? get_theme_mod( $p['video'], '' ) : '';
+	$type  = isset( $p['type'] ) ? $p['type'] : 'image';
+	$vid   = isset( $p['video'] ) ? $p['video'] : '';
 	$payload[] = array(
 		'type'  => $type,
 		'title' => $p['title'],
@@ -105,8 +112,8 @@ foreach ( $projects as $p ) {
 		'tags'  => $p['tags'],
 		'cats'  => $p['cats'],
 		'img'   => esc_url( bernauer_project_media( $p['file'] ) ),
-		'video' => $video_mod ? esc_url( $video_mod ) : '',
-		'embed' => $video_mod ? bernauer_video_embed( $video_mod ) : '',
+		'video' => $vid ? esc_url( $vid ) : '',
+		'embed' => $vid ? bernauer_video_embed( $vid ) : '',
 	);
 }
 $first = $payload[0];

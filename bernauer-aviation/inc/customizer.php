@@ -40,6 +40,8 @@ function bernauer_customize_text( $wp_customize ) {
 		'bernauer_video_4'       => array( 'label' => 'Craftsmen video 4 URL (overrides bundled Process 05)', 'default' => '', 'type' => 'url' ),
 		'bernauer_video_5'       => array( 'label' => 'Craftsmen video 5 URL (overrides bundled Process 10)', 'default' => '', 'type' => 'url' ),
 		'bernauer_behind_video'  => array( 'label' => 'Behind Bernauer Design — video URL (MP4 or YouTube/Vimeo)', 'default' => 'https://vimeo.com/1220775721', 'type' => 'url' ),
+		'bernauer_video_panels'  => array( 'label' => 'Projects — Panels video URL (YouTube/Vimeo, empty = image only)', 'default' => 'https://vimeo.com/1220782225', 'type' => 'url' ),
+		'bernauer_video_seats'   => array( 'label' => 'Projects — Seats video URL (YouTube/Vimeo, empty = image only)', 'default' => 'https://vimeo.com/1220782252', 'type' => 'url' ),
 		'bernauer_instagram'     => array( 'label' => 'Instagram URL', 'default' => 'https://www.instagram.com/bernauer.design/', 'type' => 'url' ),
 		'bernauer_facebook'      => array( 'label' => 'Facebook URL', 'default' => 'https://www.facebook.com/bernauer.design/', 'type' => 'url' ),
 		'bernauer_linkedin'      => array( 'label' => 'LinkedIn URL (founder card)', 'default' => 'https://www.linkedin.com/in/lukas-bernauer-/', 'type' => 'url' ),
