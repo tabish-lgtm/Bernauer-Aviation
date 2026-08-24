@@ -9,7 +9,7 @@
  * @package Bernauer_Aviation
  */
 
-$video    = get_theme_mod( 'bernauer_behind_video', '' );
+$video    = get_theme_mod( 'bernauer_behind_video', 'https://vimeo.com/1220775721' );
 $embed    = $video ? bernauer_video_embed( $video ) : '';
 $poster   = bernauer_image_src( 'behind_poster' );
 $linkedin = get_theme_mod( 'bernauer_linkedin', 'https://www.linkedin.com/' );
