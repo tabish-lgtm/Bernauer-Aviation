@@ -20,21 +20,21 @@ interface PieceFormProps {
 
 export function PieceForm({ drawing: d, units, onUnitsChange, onChange }: PieceFormProps) {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-5">
       {/* Piece */}
-      <section className="flex flex-col gap-4">
+      <section className="flex flex-col gap-3.5">
         <SectionTitle>Piece</SectionTitle>
         <Field id="piece-name" label="Name" helper="Shown on the drawing, e.g. Kitchen Island.">
           <Input
             id="piece-name"
             value={d.pieceName}
             onChange={(e) => onChange({ pieceName: e.target.value })}
-            className="h-11"
+            className=""
             placeholder="Kitchen Island"
           />
         </Field>
-        <div className="flex flex-col gap-2">
-          <span className="text-sm font-medium" id="shape-label">
+        <div className="flex flex-col gap-1.5">
+          <span className="text-[13px] font-medium" id="shape-label">
             Shape
           </span>
           <ToggleGroup
@@ -42,17 +42,18 @@ export function PieceForm({ drawing: d, units, onUnitsChange, onChange }: PieceF
             variant="outline"
             value={d.shape}
             onValueChange={(v) => v && onChange({ shape: v as Shape })}
-            className="w-full rounded-3xl"
+            className="w-full rounded-[18px]"
+            thumbClassName="rounded-[14px]"
             aria-labelledby="shape-label"
           >
             {(['rectangle', 'l-shape'] as Shape[]).map((shape) => (
               <ToggleGroupItem
                 key={shape}
                 value={shape}
-                className="h-16 flex-col gap-1 rounded-2xl"
+                className="h-14 flex-col gap-0.5 rounded-[14px]"
               >
                 <ShapeIcon shape={shape} />
-                <span className="text-xs font-medium">{shape === 'rectangle' ? 'Rectangle' : 'L-shape'}</span>
+                <span className="text-[12px] font-medium">{shape === 'rectangle' ? 'Rectangle' : 'L-shape'}</span>
               </ToggleGroupItem>
             ))}
           </ToggleGroup>
@@ -62,7 +63,7 @@ export function PieceForm({ drawing: d, units, onUnitsChange, onChange }: PieceF
       <Separator />
 
       {/* Size */}
-      <section className="flex flex-col gap-4">
+      <section className="flex flex-col gap-3.5">
         <SectionTitle
           aside={
             <ToggleGroup
@@ -73,10 +74,10 @@ export function PieceForm({ drawing: d, units, onUnitsChange, onChange }: PieceF
               onValueChange={(v) => v && onUnitsChange(v as Units)}
               aria-label="Units"
             >
-              <ToggleGroupItem value="in" className="px-3">
+              <ToggleGroupItem value="in" className="px-2.5">
                 Inches
               </ToggleGroupItem>
-              <ToggleGroupItem value="mm" className="px-3">
+              <ToggleGroupItem value="mm" className="px-2.5">
                 mm
               </ToggleGroupItem>
             </ToggleGroup>
@@ -108,7 +109,7 @@ export function PieceForm({ drawing: d, units, onUnitsChange, onChange }: PieceF
         </div>
 
         {d.shape === 'l-shape' && (
-          <div className="grid grid-cols-2 gap-3 rounded-2xl bg-neutral-50 p-4">
+          <div className="animate-rise grid grid-cols-2 gap-3 rounded-2xl bg-neutral-50 p-3.5">
             <p className="text-muted-foreground col-span-2 text-xs">
               The return is the leg that turns toward you on the right.
             </p>
@@ -135,8 +136,8 @@ export function PieceForm({ drawing: d, units, onUnitsChange, onChange }: PieceF
           </div>
         )}
 
-        <div className="flex flex-col gap-2">
-          <span className="text-sm font-medium" id="thickness-label">
+        <div className="flex flex-col gap-1.5">
+          <span className="text-[13px] font-medium" id="thickness-label">
             Thickness
           </span>
           <ToggleGroup
@@ -147,10 +148,10 @@ export function PieceForm({ drawing: d, units, onUnitsChange, onChange }: PieceF
             className="w-full"
             aria-labelledby="thickness-label"
           >
-            <ToggleGroupItem value="2cm" className="h-10">
+            <ToggleGroupItem value="2cm">
               2 cm <span className="text-muted-foreground font-normal">¾"</span>
             </ToggleGroupItem>
-            <ToggleGroupItem value="3cm" className="h-10">
+            <ToggleGroupItem value="3cm">
               3 cm <span className="text-muted-foreground font-normal">1¼"</span>
             </ToggleGroupItem>
           </ToggleGroup>
@@ -161,11 +162,11 @@ export function PieceForm({ drawing: d, units, onUnitsChange, onChange }: PieceF
       <Separator />
 
       {/* Material */}
-      <section className="flex flex-col gap-4">
+      <section className="flex flex-col gap-3.5">
         <SectionTitle>Material</SectionTitle>
         <Field id="material" label="Material and color" helper="Matches the material on the quote.">
           <Select value={d.materialId} onValueChange={(materialId) => onChange({ materialId })}>
-            <SelectTrigger id="material" className="h-11 w-full" size="lg">
+            <SelectTrigger id="material" className="w-full">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -187,7 +188,7 @@ export function PieceForm({ drawing: d, units, onUnitsChange, onChange }: PieceF
       <Separator />
 
       {/* Edges */}
-      <section className="flex flex-col gap-4">
+      <section className="flex flex-col gap-3.5">
         <SectionTitle>Edges</SectionTitle>
         <EdgeSelector shape={d.shape} edges={d.edges} onChange={(edges) => onChange({ edges })} />
       </section>
@@ -195,10 +196,10 @@ export function PieceForm({ drawing: d, units, onUnitsChange, onChange }: PieceF
       <Separator />
 
       {/* Backsplash */}
-      <section className="flex flex-col gap-4 pb-2">
+      <section className="flex flex-col gap-3.5 pb-2">
         <div className="flex items-center justify-between gap-4">
           <div className="flex flex-col gap-1">
-            <label htmlFor="backsplash" className="text-sm font-semibold">
+            <label htmlFor="backsplash" className="text-[13px] font-semibold">
               Backsplash
             </label>
             <p className="text-muted-foreground text-xs">A strip of stone along the back wall.</p>
@@ -207,11 +208,11 @@ export function PieceForm({ drawing: d, units, onUnitsChange, onChange }: PieceF
             id="backsplash"
             checked={d.backsplash.enabled}
             onCheckedChange={(enabled) => onChange({ backsplash: { ...d.backsplash, enabled } })}
-            className="scale-125"
           />
         </div>
         {d.backsplash.enabled && (
           <DimensionInput
+            className="animate-rise"
             id="backsplash-height"
             label="Height"
             value={d.backsplash.height}

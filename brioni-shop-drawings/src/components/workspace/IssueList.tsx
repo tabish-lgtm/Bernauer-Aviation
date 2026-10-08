@@ -16,8 +16,8 @@ export function IssueList({ issues, onSelectCutout, showAllClear = false, classN
   if (issues.length === 0) {
     if (!showAllClear) return null
     return (
-      <p className={cn('flex items-center gap-2 text-sm text-emerald-700', className)}>
-        <CircleCheck className="size-4" />
+      <p className={cn('animate-rise flex items-center gap-2 text-[13px] text-emerald-700', className)}>
+        <CircleCheck className="animate-pop size-4" />
         Everything checks out. No problems found.
       </p>
     )
@@ -35,7 +35,7 @@ export function IssueList({ issues, onSelectCutout, showAllClear = false, classN
               type={clickable ? 'button' : undefined}
               onClick={clickable ? () => onSelectCutout?.(issue.cutoutIds[0]) : undefined}
               className={cn(
-                'flex w-full items-start gap-2.5 rounded-xl border px-3.5 py-3 text-left text-sm',
+                'animate-rise flex w-full items-start gap-2.5 rounded-xl border px-3 py-2.5 text-left text-[13px]',
                 problem
                   ? 'border-red-200 bg-red-50 text-red-900'
                   : 'border-amber-200 bg-warning-soft text-amber-950',

@@ -78,9 +78,9 @@ export function DimensionInput({
             setError(null)
           }}
           onChange={(e) => handleChange(e.target.value)}
-          className="h-11 pr-11 font-mono text-[15px] tabular-nums"
+          className="pr-10 font-mono text-[13px] tabular-nums"
         />
-        <span className="text-muted-foreground pointer-events-none absolute inset-y-0 right-3 flex items-center text-xs">
+        <span className="text-muted-foreground pointer-events-none absolute inset-y-0 right-3 flex items-center text-[11px]">
           {unitWord}
         </span>
       </div>

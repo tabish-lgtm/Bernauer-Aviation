@@ -38,7 +38,7 @@ export function NewDrawingDialog({ open, onOpenChange, onCreate }: NewDrawingDia
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md">
-        <form onSubmit={submit} className="flex flex-col gap-6">
+        <form onSubmit={submit} className="flex flex-col gap-5">
           <DialogHeader>
             <DialogTitle>New drawing</DialogTitle>
             <DialogDescription>We'll start you with a standard 96" × 25½" countertop.</DialogDescription>
@@ -49,7 +49,7 @@ export function NewDrawingDialog({ open, onOpenChange, onCreate }: NewDrawingDia
               <Input
                 id="customer"
                 autoFocus
-                className="h-11"
+               
                 value={customer}
                 placeholder="e.g. Hartley Residence"
                 aria-invalid={!!error}
@@ -59,7 +59,7 @@ export function NewDrawingDialog({ open, onOpenChange, onCreate }: NewDrawingDia
             <Field id="project" label="Project" helper="Optional. Becomes the piece name on the drawing.">
               <Input
                 id="project"
-                className="h-11"
+               
                 value={project}
                 placeholder="e.g. Kitchen Island"
                 onChange={(e) => setProject(e.target.value)}
@@ -67,7 +67,7 @@ export function NewDrawingDialog({ open, onOpenChange, onCreate }: NewDrawingDia
             </Field>
             <Field id="new-material" label="Material">
               <Select value={materialId} onValueChange={setMaterialId}>
-                <SelectTrigger id="new-material" className="h-11 w-full" size="lg">
+                <SelectTrigger id="new-material" className="w-full">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -84,10 +84,10 @@ export function NewDrawingDialog({ open, onOpenChange, onCreate }: NewDrawingDia
           </div>
 
           <DialogFooter>
-            <Button type="button" variant="outline" size="lg" onClick={() => onOpenChange(false)}>
+            <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>
               Cancel
             </Button>
-            <Button type="submit" size="lg">
+            <Button type="submit">
               Start drawing
             </Button>
           </DialogFooter>

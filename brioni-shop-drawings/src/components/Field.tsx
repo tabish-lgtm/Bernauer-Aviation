@@ -15,11 +15,11 @@ interface FieldProps {
 /** Label on top, control, then helper text underneath (never tooltip-only). */
 export function Field({ id, label, helper, error, className, children }: FieldProps) {
   return (
-    <div className={cn('flex flex-col gap-2', className)}>
+    <div className={cn('flex flex-col gap-1.5', className)}>
       <Label htmlFor={id}>{label}</Label>
       {children}
       {error ? (
-        <p id={`${id}-help`} className="text-destructive text-xs leading-snug">
+        <p id={`${id}-help`} className="text-destructive animate-rise text-xs leading-snug">
           {error}
         </p>
       ) : helper ? (
@@ -33,8 +33,8 @@ export function Field({ id, label, helper, error, className, children }: FieldPr
 
 export function SectionTitle({ children, aside }: { children: ReactNode; aside?: ReactNode }) {
   return (
-    <div className="flex min-h-8 items-center justify-between gap-4">
-      <h3 className="text-foreground text-sm font-semibold">{children}</h3>
+    <div className="flex min-h-7 items-center justify-between gap-4">
+      <h3 className="text-foreground text-[13px] font-semibold">{children}</h3>
       {aside}
     </div>
   )

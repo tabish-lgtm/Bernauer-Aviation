@@ -91,15 +91,15 @@ export function CutoutDialog({ open, onOpenChange, drawing, units, editing, onSu
                 aria-checked={active}
                 onClick={() => pickType(type)}
                 className={cn(
-                  'flex cursor-pointer items-center gap-3 rounded-xl border p-3 text-left transition-colors outline-none focus-visible:ring-4 focus-visible:ring-neutral-900/10',
+                  'flex cursor-pointer items-center gap-3 rounded-xl border p-3 text-left transition-[border-color,background-color,transform] duration-150 outline-none hover:border-neutral-300 focus-visible:ring-4 focus-visible:ring-neutral-900/10 active:scale-[0.98]',
                   active ? 'border-foreground bg-neutral-50' : 'hover:bg-neutral-50',
                   draft && !active && 'py-2.5',
                 )}
               >
                 <CutoutIcon type={type} className={active ? 'text-foreground' : 'text-neutral-400'} />
                 <span className="flex min-w-0 flex-col">
-                  <span className="text-sm font-medium">{spec.name}</span>
-                  {!draft && <span className="text-muted-foreground text-xs leading-snug">{spec.hint}</span>}
+                  <span className="text-[13px] font-medium">{spec.name}</span>
+                  {!draft && <span className="text-muted-foreground text-[11px] leading-snug">{spec.hint}</span>}
                 </span>
               </button>
             )
@@ -107,9 +107,9 @@ export function CutoutDialog({ open, onOpenChange, drawing, units, editing, onSu
         </div>
 
         {draft && (
-          <div className="flex flex-col gap-6">
+          <div className="animate-rise flex flex-col gap-5">
             <fieldset className="flex flex-col gap-3">
-              <legend className="mb-3 text-sm font-semibold">Size</legend>
+              <legend className="mb-2.5 text-[13px] font-semibold">Size</legend>
               {draft.type === 'faucet' ? (
                 <div className="grid grid-cols-2 gap-3">
                   <DimensionInput
@@ -123,7 +123,7 @@ export function CutoutDialog({ open, onOpenChange, drawing, units, editing, onSu
                     helper='Most faucets need 1⅜".'
                   />
                   <div className="flex flex-col gap-2">
-                    <span className="text-sm font-medium" id="hole-count-label">
+                    <span className="text-[13px] font-medium" id="hole-count-label">
                       Number of holes
                     </span>
                     <ToggleGroup
@@ -135,7 +135,7 @@ export function CutoutDialog({ open, onOpenChange, drawing, units, editing, onSu
                       aria-labelledby="hole-count-label"
                     >
                       {['1', '2', '3'].map((n) => (
-                        <ToggleGroupItem key={n} value={n} className="h-11 font-mono">
+                        <ToggleGroupItem key={n} value={n} className="font-mono">
                           {n}
                         </ToggleGroupItem>
                       ))}
@@ -170,7 +170,7 @@ export function CutoutDialog({ open, onOpenChange, drawing, units, editing, onSu
             </fieldset>
 
             <fieldset className="flex flex-col gap-3">
-              <legend className="mb-3 text-sm font-semibold">Position</legend>
+              <legend className="mb-2.5 text-[13px] font-semibold">Position</legend>
               <div className="grid grid-cols-2 gap-3">
                 <DimensionInput
                   id="from-left"
@@ -200,10 +200,10 @@ export function CutoutDialog({ open, onOpenChange, drawing, units, editing, onSu
         )}
 
         <DialogFooter className="gap-2">
-          <Button variant="outline" size="lg" onClick={() => onOpenChange(false)}>
+          <Button variant="outline" onClick={() => onOpenChange(false)}>
             Cancel
           </Button>
-          <Button size="lg" disabled={!draft} onClick={() => draft && onSubmit(draft)}>
+          <Button disabled={!draft} onClick={() => draft && onSubmit(draft)}>
             {isEdit ? 'Save changes' : 'Add to drawing'}
           </Button>
         </DialogFooter>

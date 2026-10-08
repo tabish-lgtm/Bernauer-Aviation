@@ -421,7 +421,8 @@ export function DrawingCanvas({
             role="button"
             tabIndex={interactive ? 0 : -1}
             aria-label={`${labels[c.id]}, ${sizeText}. Use arrow keys to move, Enter to edit.`}
-            className={interactive ? 'outline-none' : undefined}
+            className={interactive ? 'cutout outline-none' : undefined}
+            data-dragging={draggingId === c.id}
             style={{
               cursor: interactive ? (draggingId === c.id ? 'grabbing' : 'grab') : 'default',
               touchAction: 'none',
@@ -446,6 +447,7 @@ export function DrawingCanvas({
                 stroke={ACCENT}
                 strokeWidth={1}
                 strokeDasharray="3 3"
+                className="selection-ring"
               />
             )}
 
@@ -463,6 +465,7 @@ export function DrawingCanvas({
                       fill="#fff"
                       stroke={stroke}
                       strokeWidth={1.25}
+                      className={level ? undefined : 'cutout-shape'}
                     />
                   )
                 })}
@@ -478,6 +481,7 @@ export function DrawingCanvas({
                   fill="#fff"
                   stroke={stroke}
                   strokeWidth={selected ? 1.75 : 1.25}
+                  className={level ? undefined : 'cutout-shape'}
                 />
                 {c.type === 'dropin-sink' && (
                   <rect

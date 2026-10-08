@@ -64,7 +64,7 @@ export function EdgeSelector({ shape, edges, onChange }: EdgeSelectorProps) {
   const allSame = segs.every((s) => edges[s.id] === profile)
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-3.5">
       <div className="rounded-2xl bg-neutral-50 p-3">
         <svg viewBox="0 0 240 136" className="mx-auto block h-auto w-full max-w-[280px]" aria-label="Choose an edge">
           <polygon points={outline} className="fill-primary/[0.06]" />
@@ -107,7 +107,7 @@ export function EdgeSelector({ shape, edges, onChange }: EdgeSelectorProps) {
                   dominantBaseline="central"
                   transform={s.rotate ? `rotate(-90 ${s.label[0]} ${s.label[1]})` : undefined}
                   className={cn(
-                    'pointer-events-none text-[9px] font-semibold tracking-wide uppercase',
+                    'pointer-events-none text-[9px] font-semibold tracking-wide uppercase transition-colors duration-200',
                     isSel ? 'fill-primary' : 'fill-neutral-500',
                   )}
                 >
@@ -121,9 +121,11 @@ export function EdgeSelector({ shape, edges, onChange }: EdgeSelectorProps) {
       </div>
 
       <div className="flex flex-col gap-2">
-        <p className="text-sm">
+        <p className="text-[13px]">
           <span className="text-muted-foreground">Selected: </span>
-          <span className="font-medium">{EDGE_NAMES[active]}</span>
+          <span key={active} className="animate-rise inline-block font-medium">
+            {EDGE_NAMES[active]}
+          </span>
         </p>
         <ToggleGroup
           type="single"
@@ -136,12 +138,12 @@ export function EdgeSelector({ shape, edges, onChange }: EdgeSelectorProps) {
             <ToggleGroupItem
               key={p.id}
               value={p.id}
-              className="data-[state=on]:border-foreground text-foreground h-auto min-h-11 justify-start gap-3 rounded-xl border px-3 py-2 text-left hover:bg-neutral-50 data-[state=on]:bg-neutral-50 data-[state=on]:shadow-none"
+              className="data-[state=on]:border-foreground text-foreground h-auto min-h-10 justify-start gap-3 rounded-xl border px-3 py-1.5 text-left transition-[border-color,background-color] duration-150 hover:border-neutral-300 hover:bg-neutral-50 data-[state=on]:bg-neutral-50 data-[state=on]:shadow-none"
             >
               <EdgeProfileIcon profile={p.id} />
               <span className="flex flex-col">
-                <span className="font-medium">{p.name}</span>
-                <span className="text-muted-foreground text-xs font-normal">{p.hint}</span>
+                <span className="text-[13px] font-medium">{p.name}</span>
+                <span className="text-muted-foreground text-[11px] font-normal">{p.hint}</span>
               </span>
             </ToggleGroupItem>
           ))}

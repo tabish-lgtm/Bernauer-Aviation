@@ -5,17 +5,19 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const toggleVariants = cva(
-  "inline-flex items-center justify-center gap-2 rounded-full text-sm font-medium cursor-pointer text-muted-foreground hover:text-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-white data-[state=on]:text-foreground data-[state=on]:shadow-sm data-[state=on]:shadow-black/10 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] outline-none transition-[color,box-shadow] whitespace-nowrap",
+  "inline-flex items-center justify-center gap-2 rounded-full text-sm font-medium cursor-pointer text-muted-foreground hover:text-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-white data-[state=on]:text-foreground data-[state=on]:shadow-sm data-[state=on]:shadow-black/10 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 focus-visible:ring-4 focus-visible:ring-neutral-900/10 outline-none transition-[color,background-color,box-shadow] duration-200 whitespace-nowrap",
   {
     variants: {
       variant: {
         default: 'bg-transparent',
-        outline: 'bg-transparent',
+        // Segmented: the sliding thumb in ToggleGroup paints the active state.
+        outline:
+          'relative z-[1] bg-transparent data-[state=on]:bg-transparent data-[state=on]:shadow-none',
       },
       size: {
-        default: 'h-9 px-2 min-w-9',
-        sm: 'h-8 px-1.5 min-w-8',
-        lg: 'h-10 px-2.5 min-w-10',
+        default: 'h-[30px] px-3 min-w-9 text-[13px]',
+        sm: 'h-[26px] px-2.5 min-w-8 text-[13px]',
+        lg: 'h-9 px-3 min-w-10',
       },
     },
     defaultVariants: {

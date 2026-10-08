@@ -32,78 +32,78 @@ export function QuoteTable({ quotes, onOpen, onNew }: QuoteTableProps) {
   return (
     <div className="flex min-h-dvh">
       {/* Sidebar */}
-      <aside className="bg-sidebar sticky top-0 hidden h-dvh w-60 shrink-0 flex-col border-r px-3 py-4 md:flex">
-        <div className="flex items-center gap-2.5 px-2 pb-6">
-          <BrioniMark className="size-7" />
-          <span className="text-sm font-semibold">Brioni Granite</span>
+      <aside className="bg-sidebar sticky top-0 hidden h-dvh w-56 shrink-0 flex-col border-r px-2.5 py-3 md:flex">
+        <div className="flex items-center gap-2 px-2 pt-1 pb-5">
+          <BrioniMark className="size-6" />
+          <span className="text-[13px] font-semibold">Brioni Granite</span>
         </div>
-        <nav className="flex flex-col gap-0.5 text-sm">
+        <nav className="flex flex-col gap-px text-[13px]">
           <NavItem icon={<LayoutGrid />} label="Quotes" active />
           <NavItem icon={<Users />} label="Customers" />
           <NavItem icon={<FileText />} label="Materials" />
         </nav>
-        <div className="mt-auto flex flex-col gap-0.5 text-sm">
+        <div className="mt-auto flex flex-col gap-px text-[13px]">
           <NavItem icon={<Settings />} label="Settings" />
-          <div className="mt-2 flex items-center gap-2.5 rounded-xl px-2 py-2">
+          <div className="mt-2 flex items-center gap-2.5 rounded-xl px-2 py-1.5 transition-colors hover:bg-neutral-200/50">
             <span className="flex size-7 items-center justify-center rounded-full bg-gradient-to-br from-amber-200 via-rose-200 to-sky-200 text-xs font-semibold text-neutral-700">
               JM
             </span>
             <span className="flex flex-col leading-tight">
-              <span className="text-sm font-medium">Jamie Moreno</span>
-              <span className="text-muted-foreground text-xs">Sales</span>
+              <span className="text-[13px] font-medium">Jamie Moreno</span>
+              <span className="text-muted-foreground text-[11px]">Sales</span>
             </span>
           </div>
         </div>
       </aside>
 
       <main className="min-w-0 flex-1">
-        <div className="mx-auto flex max-w-5xl flex-col gap-10 px-4 py-10 md:px-10 md:py-14">
-          <header className="flex flex-col gap-1">
-            <p className="text-muted-foreground text-sm">{greeting()}, Jamie</p>
-            <h1 className="text-3xl font-semibold">What are we cutting today?</h1>
+        <div className="mx-auto flex max-w-5xl flex-col gap-8 px-4 py-8 md:px-10 md:py-12">
+          <header className="animate-rise flex flex-col gap-1">
+            <p className="text-muted-foreground text-[13px]">{greeting()}, Jamie</p>
+            <h1 className="text-2xl font-semibold">What are we cutting today?</h1>
           </header>
 
           {/* Quick start */}
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="animate-rise grid gap-3 sm:grid-cols-2" style={{ animationDelay: '60ms' }}>
             <button
               type="button"
               onClick={onNew}
-              className="group relative flex cursor-pointer items-center gap-4 overflow-hidden rounded-2xl border bg-white p-5 text-left transition-colors outline-none hover:border-neutral-300 focus-visible:ring-4 focus-visible:ring-neutral-900/10"
+              className="group relative flex cursor-pointer items-center gap-3.5 overflow-hidden rounded-2xl border bg-white p-4 text-left transition-[border-color,box-shadow,transform] duration-200 outline-none hover:-translate-y-0.5 hover:border-neutral-300 hover:shadow-lg hover:shadow-black/[0.04] focus-visible:ring-4 focus-visible:ring-neutral-900/10 active:translate-y-0 active:scale-[0.99]"
             >
-              <span className="relative flex size-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-200 via-indigo-200 to-rose-200">
-                <svg viewBox="0 0 24 24" className="size-6 text-neutral-800" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
+              <span className="relative flex size-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-sky-200 via-indigo-200 to-rose-200 transition-transform duration-300 group-hover:scale-105 group-hover:-rotate-3">
+                <svg viewBox="0 0 24 24" className="size-5 text-neutral-800" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
                   <rect x="3" y="7" width="18" height="10" rx="1.5" />
                   <path d="M3 12h18M12 7v10" strokeOpacity=".35" />
                 </svg>
               </span>
               <span className="flex min-w-0 flex-col">
-                <span className="font-medium">New drawing</span>
-                <span className="text-muted-foreground text-sm">Size, edges and cut-outs in under 2 minutes</span>
+                <span className="text-sm font-medium">New drawing</span>
+                <span className="text-muted-foreground text-[13px]">Size, edges and cut-outs in under 2 minutes</span>
               </span>
               <ArrowRight className="text-muted-foreground ml-auto size-4 transition-transform group-hover:translate-x-0.5" />
             </button>
-            <div className="flex items-center gap-4 rounded-2xl border bg-white p-5">
-              <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-100 via-orange-100 to-rose-100 text-lg font-semibold tabular-nums text-neutral-800">
+            <div className="flex items-center gap-3.5 rounded-2xl border bg-white p-4">
+              <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-amber-100 via-orange-100 to-rose-100 text-base font-semibold tabular-nums text-neutral-800">
                 {waiting}
               </span>
               <span className="flex flex-col">
-                <span className="font-medium">Waiting for a drawing</span>
-                <span className="text-muted-foreground text-sm">Draft quotes that still need one</span>
+                <span className="text-sm font-medium">Waiting for a drawing</span>
+                <span className="text-muted-foreground text-[13px]">Draft quotes that still need one</span>
               </span>
             </div>
           </div>
 
           {/* Quotes */}
-          <section className="flex flex-col gap-4">
+          <section className="animate-rise flex flex-col gap-3" style={{ animationDelay: '120ms' }}>
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <h2 className="text-lg font-semibold">Recent quotes</h2>
-              <div className="relative w-full sm:w-72">
+              <h2 className="text-base font-semibold">Recent quotes</h2>
+              <div className="relative w-full sm:w-64">
                 <Search className="text-muted-foreground pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2" />
                 <Input
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search quotes"
-                  className="h-10 rounded-full pl-9"
+                  className="rounded-full pl-9"
                   aria-label="Search quotes"
                 />
               </div>
@@ -112,11 +112,11 @@ export function QuoteTable({ quotes, onOpen, onNew }: QuoteTableProps) {
               <Table>
                 <TableHeader>
                   <TableRow className="hover:bg-transparent">
-                    <TableHead className="pl-5 text-xs font-normal">Quote</TableHead>
+                    <TableHead className="pl-5">Quote</TableHead>
                     <TableHead className="text-xs font-normal">Customer</TableHead>
-                    <TableHead className="hidden text-xs font-normal md:table-cell">Material</TableHead>
+                    <TableHead className="hidden md:table-cell">Material</TableHead>
                     <TableHead className="text-xs font-normal">Status</TableHead>
-                    <TableHead className="hidden text-xs font-normal lg:table-cell">Updated</TableHead>
+                    <TableHead className="hidden lg:table-cell">Updated</TableHead>
                     <TableHead className="w-10" />
                   </TableRow>
                 </TableHeader>
@@ -134,14 +134,14 @@ export function QuoteTable({ quotes, onOpen, onNew }: QuoteTableProps) {
                             onOpen(quote.id)
                           }
                         }}
-                        className="group h-16 cursor-pointer outline-none hover:bg-neutral-50 focus-visible:bg-neutral-50"
+                        className="group h-14 cursor-pointer text-[13px] outline-none hover:bg-neutral-50 focus-visible:bg-neutral-50"
                         aria-label={`Open ${quote.number}, ${quote.customer}`}
                       >
-                        <TableCell className="text-muted-foreground pl-5 font-mono text-[13px]">{quote.number}</TableCell>
+                        <TableCell className="text-muted-foreground pl-5 font-mono text-xs">{quote.number}</TableCell>
                         <TableCell>
                           <div className="flex flex-col">
                             <span className="font-medium">{quote.customer}</span>
-                            <span className="text-muted-foreground text-xs">{quote.project}</span>
+                            <span className="text-muted-foreground text-[11px]">{quote.project}</span>
                           </div>
                         </TableCell>
                         <TableCell className="hidden md:table-cell">
@@ -182,8 +182,8 @@ function NavItem({ icon, label, active = false }: { icon: ReactNode; label: stri
     <span
       aria-current={active ? 'page' : undefined}
       className={cn(
-        'flex h-9 items-center gap-2.5 rounded-lg px-2.5 [&_svg]:size-4',
-        active ? 'text-foreground bg-neutral-200/60 font-medium' : 'text-muted-foreground',
+        'flex h-8 cursor-default items-center gap-2.5 rounded-lg px-2 transition-colors [&_svg]:size-4',
+        active ? 'text-foreground bg-neutral-200/60 font-medium' : 'text-muted-foreground hover:bg-neutral-200/40 hover:text-foreground',
       )}
     >
       {icon}

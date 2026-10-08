@@ -34,7 +34,7 @@ export function CutoutPanel({
   const labels = cutoutLabels(drawing.cutouts)
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-3">
       {drawing.cutouts.length === 0 ? (
         <div className="flex flex-col items-center gap-3 rounded-2xl bg-neutral-50 px-6 py-8 text-center">
           <div className="text-muted-foreground flex gap-2">
@@ -42,7 +42,7 @@ export function CutoutPanel({
             <CutoutIcon type="cooktop" />
             <CutoutIcon type="faucet" />
           </div>
-          <p className="text-muted-foreground text-sm">
+          <p className="text-muted-foreground text-[13px]">
             No cut-outs yet. Add a sink, cooktop or faucet holes if this piece needs them.
           </p>
         </div>
@@ -60,7 +60,7 @@ export function CutoutPanel({
               <li key={c.id}>
                 <div
                   className={cn(
-                    'group flex items-center gap-3 rounded-xl border bg-white p-3 transition-colors',
+                    'group animate-rise flex items-center gap-3 rounded-xl border bg-white p-2.5 transition-[border-color,box-shadow] duration-200',
                     selected ? 'border-foreground ring-4 ring-neutral-900/[0.06]' : 'hover:border-neutral-300',
                   )}
                 >
@@ -72,14 +72,14 @@ export function CutoutPanel({
                   >
                     <span
                       className={cn(
-                        'flex size-10 shrink-0 items-center justify-center rounded-lg',
+                        'flex size-9 shrink-0 items-center justify-center rounded-lg transition-colors duration-200',
                         selected ? 'bg-foreground text-background' : 'bg-muted text-neutral-600',
                       )}
                     >
-                      <CutoutIcon type={c.type} className="h-5 w-7" />
+                      <CutoutIcon type={c.type} className="h-4 w-6" />
                     </span>
                     <span className="flex min-w-0 flex-col gap-0.5">
-                      <span className="flex items-center gap-1.5 text-sm font-medium">
+                      <span className="flex items-center gap-1.5 text-[13px] font-medium">
                         {labels[c.id]}
                         {mine.length > 0 &&
                           (problem ? (
@@ -88,8 +88,8 @@ export function CutoutPanel({
                             <TriangleAlert className="size-3.5 text-amber-600" aria-label="Needs a check" />
                           ))}
                       </span>
-                      <span className="font-mono text-xs tabular-nums">{size}</span>
-                      <span className="text-muted-foreground text-xs leading-snug">
+                      <span className="font-mono text-[11px] tabular-nums">{size}</span>
+                      <span className="text-muted-foreground text-[11px] leading-snug">
                         {fmt(c.fromLeft)} from left · {fmt(c.fromFront)} from front
                       </span>
                     </span>
@@ -97,7 +97,7 @@ export function CutoutPanel({
                   <div className="flex shrink-0 items-center">
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <Button variant="ghost" size="icon" className="size-10" onClick={() => onEdit(c.id)}>
+                        <Button variant="ghost" size="icon" className="size-8" onClick={() => onEdit(c.id)}>
                           <Pencil />
                           <span className="sr-only">Edit {labels[c.id]}</span>
                         </Button>
@@ -109,7 +109,7 @@ export function CutoutPanel({
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="hover:text-destructive size-10"
+                          className="hover:text-destructive size-8 hover:bg-red-50"
                           onClick={() => onDelete(c.id)}
                         >
                           <Trash2 />
@@ -126,13 +126,13 @@ export function CutoutPanel({
         </ul>
       )}
 
-      <Button variant="outline" size="lg" className="h-11 w-full" onClick={onAdd}>
-        <Plus />
+      <Button variant="outline" className="group/add w-full" onClick={onAdd}>
+        <Plus className="transition-transform duration-200 group-hover/add:rotate-90" />
         Add cut-out
       </Button>
 
       {drawing.cutouts.length > 0 && (
-        <p className="text-muted-foreground text-xs leading-relaxed">
+        <p className="text-muted-foreground text-[11px] leading-relaxed">
           Drag a cut-out on the drawing to move it. It snaps to ⅛". Select one and use the arrow keys to
           nudge it (hold Shift for 1").
         </p>

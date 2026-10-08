@@ -57,8 +57,9 @@ export function ApprovalDialog({ open, onOpenChange, quote, drawing, units, issu
       <DialogContent className="sm:max-w-md">
         {sent ? (
           <div className="flex flex-col items-center gap-4 py-4 text-center">
-            <span className="flex size-14 items-center justify-center rounded-full bg-emerald-50">
-              <CircleCheck className="size-7 text-emerald-600" />
+            <span className="animate-pop relative flex size-14 items-center justify-center rounded-full bg-emerald-50">
+              <span className="absolute inset-0 animate-ping rounded-full bg-emerald-200/60 [animation-iteration-count:1]" />
+              <CircleCheck className="relative size-7 text-emerald-600" />
             </span>
             <DialogHeader className="items-center text-center sm:text-center">
               <DialogTitle>Drawing approved</DialogTitle>
@@ -66,7 +67,7 @@ export function ApprovalDialog({ open, onOpenChange, quote, drawing, units, issu
                 {quote.number} is marked approved and ready for the shop floor.
               </DialogDescription>
             </DialogHeader>
-            <Button size="lg" className="mt-2 w-full" onClick={() => onOpenChange(false)}>
+            <Button className="mt-2 w-full" onClick={() => onOpenChange(false)}>
               Done
             </Button>
           </div>
@@ -79,7 +80,7 @@ export function ApprovalDialog({ open, onOpenChange, quote, drawing, units, issu
               </DialogDescription>
             </DialogHeader>
 
-            <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2.5 rounded-2xl bg-neutral-50 p-5 text-sm">
+            <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 rounded-xl bg-neutral-50 p-4 text-[13px]">
               {rows.map(([k, v]) => (
                 <div key={k} className="contents">
                   <dt className="text-muted-foreground">{k}</dt>
@@ -91,7 +92,7 @@ export function ApprovalDialog({ open, onOpenChange, quote, drawing, units, issu
             {issues.length > 0 && (
               <>
                 <Separator />
-                <p className="text-sm text-amber-800">
+                <p className="text-[13px] text-amber-800">
                   {problems > 0
                     ? `There ${problems === 1 ? 'is 1 problem' : `are ${problems} problems`} on this drawing. You can still send it, but fixing ${problems === 1 ? 'it' : 'them'} first is safer.`
                     : `There ${cautions === 1 ? 'is 1 thing' : `are ${cautions} things`} worth double-checking before you send.`}
@@ -100,11 +101,10 @@ export function ApprovalDialog({ open, onOpenChange, quote, drawing, units, issu
             )}
 
             <DialogFooter>
-              <Button variant="outline" size="lg" onClick={() => onOpenChange(false)}>
+              <Button variant="outline" onClick={() => onOpenChange(false)}>
                 Keep editing
               </Button>
               <Button
-                size="lg"
                 onClick={() => {
                   onConfirm()
                   setSent(true)

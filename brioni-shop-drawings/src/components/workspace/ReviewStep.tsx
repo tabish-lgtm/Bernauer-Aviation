@@ -1,4 +1,6 @@
 import { useState } from 'react'
+
+import { useAnimatedNumber } from '@/hooks/use-animated-number'
 import { Download, FileText } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
@@ -33,6 +35,7 @@ export function ReviewStep({ quote, drawing, plan, units, issues, date, onGoToDr
   const material = getMaterial(drawing.materialId)
   const { w, h } = boundingSize(drawing)
   const est = estimate(drawing, plan)
+  const shownTotal = useAnimatedNumber(est.total)
   const labels = cutoutLabels(drawing.cutouts)
   const profiles = [...new Set(edgeSegments(drawing).map((s) => drawing.edges[s.id]))].filter((p) => p !== 'raw')
 
@@ -47,11 +50,11 @@ export function ReviewStep({ quote, drawing, plan, units, issues, date, onGoToDr
 
   return (
     <div className="grid min-h-0 flex-1 grid-cols-1 lg:grid-cols-[minmax(0,1fr)_380px]">
-      <main className="flex min-h-[420px] flex-col gap-4 p-4 md:p-8">
+      <main className="animate-rise flex min-h-[420px] flex-col gap-4 p-4 md:p-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-col gap-1">
-            <h1 className="text-xl font-semibold">{drawing.pieceName || 'Untitled piece'}</h1>
-            <p className="text-muted-foreground text-sm">
+            <h1 className="text-lg font-semibold">{drawing.pieceName || 'Untitled piece'}</h1>
+            <p className="text-muted-foreground text-[13px]">
               {quote.customer} · {quote.number}
             </p>
           </div>
@@ -62,17 +65,17 @@ export function ReviewStep({ quote, drawing, plan, units, issues, date, onGoToDr
             onValueChange={(v) => v && setView(v as 'drawing' | 'preview')}
             aria-label="View"
           >
-            <ToggleGroupItem value="drawing" className="px-4">
+            <ToggleGroupItem value="drawing" className="px-3.5">
               Shop drawing
             </ToggleGroupItem>
-            <ToggleGroupItem value="preview" className="px-4">
+            <ToggleGroupItem value="preview" className="px-3.5">
               3D preview
             </ToggleGroupItem>
           </ToggleGroup>
         </div>
         <div className="relative min-h-0 flex-1">
           {view === 'drawing' ? (
-            <div className="grid-paper absolute inset-0 rounded-2xl border p-3 md:p-5">
+            <div key="drawing" className="grid-paper animate-rise absolute inset-0 rounded-2xl border p-3 md:p-5">
               <DrawingCanvas
                 drawing={drawing}
                 units={units}
@@ -83,25 +86,25 @@ export function ReviewStep({ quote, drawing, plan, units, issues, date, onGoToDr
               />
             </div>
           ) : (
-            <div className="absolute inset-0 rounded-2xl border">
+            <div key="preview" className="animate-rise absolute inset-0 rounded-2xl border">
               <IsoPreview drawing={drawing} />
             </div>
           )}
         </div>
       </main>
 
-      <aside className="flex min-h-0 flex-col gap-6 overflow-y-auto border-t bg-white p-6 lg:border-t-0 lg:border-l">
+      <aside className="flex min-h-0 flex-col gap-5 overflow-y-auto border-t bg-white p-5 lg:border-t-0 lg:border-l">
         <section className="flex flex-col gap-1">
-          <span className="text-muted-foreground text-xs">Estimate</span>
-          <span className="text-4xl font-semibold tracking-tight tabular-nums">{formatMoney(est.total)}</span>
-          <span className="text-muted-foreground text-xs">
+          <span className="text-muted-foreground text-[11px]">Estimate</span>
+          <span className="text-3xl font-semibold tracking-tight tabular-nums">{formatMoney(shownTotal)}</span>
+          <span className="text-muted-foreground text-[11px]">
             {est.sqft.toFixed(1)} ft² installed · before tax
           </span>
         </section>
 
-        <ul className="flex flex-col gap-2.5 text-sm">
+        <ul className="flex flex-col gap-2 text-[13px]">
           {est.lines.map((l, i) => (
-            <li key={i} className="flex items-baseline justify-between gap-4">
+            <li key={`${l.label}-${i}`} className="animate-rise flex items-baseline justify-between gap-4">
               <span className="flex min-w-0 flex-col">
                 <span>{l.label}</span>
                 <span className="text-muted-foreground font-mono text-[11px] tabular-nums">{l.detail}</span>
@@ -113,7 +116,7 @@ export function ReviewStep({ quote, drawing, plan, units, issues, date, onGoToDr
 
         <Separator />
 
-        <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2.5 text-sm">
+        <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-[13px]">
           {facts.map(([k, v]) => (
             <div key={k} className="contents">
               <dt className="text-muted-foreground">{k}</dt>
@@ -135,7 +138,7 @@ export function ReviewStep({ quote, drawing, plan, units, issues, date, onGoToDr
         )}
 
         <div className="mt-auto flex flex-col gap-2 pt-2">
-          <Button variant="outline" size="lg" onClick={() => window.print()}>
+          <Button variant="outline" onClick={() => window.print()}>
             <Download />
             Download PDF
           </Button>

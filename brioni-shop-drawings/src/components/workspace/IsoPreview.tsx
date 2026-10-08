@@ -184,7 +184,13 @@ export function IsoPreview({ drawing: d }: { drawing: Drawing }) {
 
   return (
     <div className="relative h-full w-full overflow-hidden rounded-2xl bg-gradient-to-b from-neutral-100 via-neutral-50 to-white">
-      <svg viewBox={`${vb.x} ${vb.y} ${vb.w} ${vb.h}`} className="h-full w-full" role="img" aria-label="3D preview of the countertop">
+      <svg
+        key={String(flipped)}
+        viewBox={`${vb.x} ${vb.y} ${vb.w} ${vb.h}`}
+        className="animate-rise h-full w-full"
+        role="img"
+        aria-label="3D preview of the countertop"
+      >
         <defs>
           <StoneFilter id={`stone-${uid}`} material={material} unitsPerInch={1} />
           <clipPath id={`top-${uid}`}>
@@ -335,8 +341,8 @@ export function IsoPreview({ drawing: d }: { drawing: Drawing }) {
       </svg>
 
       <div className="absolute right-4 bottom-4 flex items-center gap-2">
-        <Button variant="outline" size="sm" className="bg-white/90 backdrop-blur" onClick={() => setFlipped((f) => !f)}>
-          <RotateCcw />
+        <Button variant="outline" size="sm" className="group/turn bg-white/90 backdrop-blur" onClick={() => setFlipped((f) => !f)}>
+          <RotateCcw className="transition-transform duration-500 group-active/turn:-rotate-180" />
           Turn view
         </Button>
       </div>

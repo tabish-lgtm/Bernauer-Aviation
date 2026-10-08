@@ -106,3 +106,69 @@
     display: block;
   }
 }
+
+/* ── Micro-interactions ── */
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -12;
+  }
+}
+.selection-ring {
+  animation: marching-ants 0.8s linear infinite;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.animate-pop {
+  animation: pop 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(6px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+.animate-rise {
+  animation: rise 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* Drawing: cut-outs answer the pointer before you drag them. */
+.cutout .cutout-shape {
+  transition: stroke 0.15s ease;
+}
+.cutout:hover .cutout-shape,
+.cutout:focus-visible .cutout-shape {
+  stroke: #4353c9;
+}
+.cutout {
+  transition: filter 0.2s ease;
+}
+.cutout[data-dragging='true'] {
+  filter: drop-shadow(0 6px 10px rgb(0 0 0 / 0.18));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
