@@ -1,4 +1,4 @@
-import { MIN_STONE, SLAB } from './catalog'
+import { MIN_STONE, SLAB_SIZES } from './catalog'
 import {
   boundingSize,
   clearances,
@@ -29,13 +29,14 @@ export function validateDrawing(d: Drawing, units: Units): Issue[] {
 
   // Slab size
   const { w, h } = boundingSize(d)
-  const fits = (w <= SLAB.length && h <= SLAB.depth) || (w <= SLAB.depth && h <= SLAB.length)
+  const slab = SLAB_SIZES[d.slabSize]
+  const fits = (w <= slab.length && h <= slab.depth) || (w <= slab.depth && h <= slab.length)
   if (!fits) {
     issues.push({
       id: 'slab',
       level: 'caution',
-      title: 'Larger than one slab',
-      detail: `At ${fmt(w)} × ${fmt(h)} this piece won't fit on a standard ${fmt(SLAB.length)} × ${fmt(SLAB.depth)} slab. Plan a seam.`,
+      title: 'Needs a seam',
+      detail: `At ${fmt(w)} × ${fmt(h)} this piece is bigger than one ${fmt(slab.length)} × ${fmt(slab.depth)} slab. We've placed a seam for you, away from the cut-outs. Check it on the Slab step.`,
       cutoutIds: [],
     })
   }

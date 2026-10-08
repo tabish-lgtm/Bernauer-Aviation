@@ -1,9 +1,17 @@
 # Brioni Granite: Shop Drawings prototype
 
 A clickable, high-fidelity prototype of a simple countertop shop-drawing tool.
-It replaces the ERP's CAD-style editor with one screen that turns a quote into
-a clean, dimensioned drawing. It covers piece size, edge profiles and cut-outs,
-and nothing else.
+It replaces the ERP's dark, five-step CAD-style flow (Draw → Slab layout →
+Vein match → 3D view → Review) with three calm, light steps:
+
+| Step | Replaces | What you do |
+| --- | --- | --- |
+| **1 Draw** | Draw | Size, shape, edges, backsplash and cut-outs on one screen, with a live dimensioned drawing |
+| **2 Slab** | Slab layout + Vein match | Nothing: pieces are seamed and nested automatically. Optionally pick a standard or jumbo slab |
+| **3 Review** | 3D view + Review | Check the shop drawing or a 3D preview, see the estimate, download the PDF, send for approval |
+
+The visual language is light and quiet: white surfaces, black pill buttons
+and soft grey segmented controls, in the spirit of ElevenLabs.
 
 All data is mocked locally. There is no backend.
 
@@ -47,6 +55,8 @@ src/
     units.ts                   ⅛" fractions, mm, and forgiving input parsing ("25 1/2", "25½")
     geometry.ts                Outline, edges, cut-out placement, clearances
     validation.ts              Friendly warnings (off the stone, overlap, < 2" stone, slab size)
+    slab.ts                    Auto seams (kept 3" from cut-outs) and guillotine nesting onto slabs
+    pricing.ts                 Mock estimate: material, fabrication, edges, cut-outs, seams
     drawing.ts                 Defaults and smart placement of new cut-outs
   components/
     QuoteTable.tsx             Home: searchable quote table
@@ -54,7 +64,11 @@ src/
     DimensionInput.tsx         Length field (inches/fractions or mm) with helper text
     icons.tsx                  Shape, edge-profile and cut-out pictograms
     workspace/
-      Workspace.tsx            Top bar + responsive 3-zone layout
+      Workspace.tsx            Top bar, 3-step navigation, responsive layout, print sheet
+      SlabStep.tsx             Step 2: automatic slab layout with yield and seams
+      ReviewStep.tsx           Step 3: drawing / 3D preview, estimate, PDF
+      IsoPreview.tsx           Lightweight 3D (isometric SVG) preview with cabinets
+    StoneTexture.tsx           SVG filter for marble veins, granite flecks, quartz clouding
       PieceForm.tsx            Left panel: piece details
       EdgeSelector.tsx         Tap-an-edge visual picker with profile cross-sections
       DrawingCanvas.tsx        Live SVG drawing: dimensions, edges, cut-outs, title block, drag

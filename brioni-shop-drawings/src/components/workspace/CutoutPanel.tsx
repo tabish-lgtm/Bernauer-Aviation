@@ -36,7 +36,7 @@ export function CutoutPanel({
   return (
     <div className="flex flex-col gap-4">
       {drawing.cutouts.length === 0 ? (
-        <div className="flex flex-col items-center gap-3 rounded-lg border border-dashed px-6 py-8 text-center">
+        <div className="flex flex-col items-center gap-3 rounded-2xl bg-neutral-50 px-6 py-8 text-center">
           <div className="text-muted-foreground flex gap-2">
             <CutoutIcon type="undermount-sink" />
             <CutoutIcon type="cooktop" />
@@ -60,8 +60,8 @@ export function CutoutPanel({
               <li key={c.id}>
                 <div
                   className={cn(
-                    'group flex items-center gap-3 rounded-lg border bg-white p-3 transition-colors',
-                    selected ? 'border-primary/60 ring-primary/15 ring-[3px]' : 'hover:border-neutral-300',
+                    'group flex items-center gap-3 rounded-xl border bg-white p-3 transition-colors',
+                    selected ? 'border-foreground ring-4 ring-neutral-900/[0.06]' : 'hover:border-neutral-300',
                   )}
                 >
                   <button
@@ -72,8 +72,8 @@ export function CutoutPanel({
                   >
                     <span
                       className={cn(
-                        'flex size-10 shrink-0 items-center justify-center rounded-md',
-                        selected ? 'bg-accent text-primary' : 'bg-muted text-neutral-600',
+                        'flex size-10 shrink-0 items-center justify-center rounded-lg',
+                        selected ? 'bg-foreground text-background' : 'bg-muted text-neutral-600',
                       )}
                     >
                       <CutoutIcon type={c.type} className="h-5 w-7" />
@@ -126,7 +126,7 @@ export function CutoutPanel({
         </ul>
       )}
 
-      <Button variant="outline" size="lg" className="h-12 w-full border-dashed" onClick={onAdd}>
+      <Button variant="outline" size="lg" className="h-11 w-full" onClick={onAdd}>
         <Plus />
         Add cut-out
       </Button>

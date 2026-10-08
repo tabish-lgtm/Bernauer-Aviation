@@ -1,4 +1,4 @@
-import type { CutoutType, EdgeProfile, Thickness } from './types'
+import type { CutoutType, EdgeProfile, SlabSize, Thickness } from './types'
 
 export interface Material {
   id: string
@@ -6,15 +6,19 @@ export interface Material {
   kind: 'Granite' | 'Marble' | 'Quartz' | 'Quartzite'
   /** Swatch color for the picker and a faint tint on the drawing. */
   swatch: string
+  /** How the stone reads in previews. */
+  texture: 'veined' | 'speckled' | 'solid'
+  /** Mock price, material only. */
+  pricePerSqft: number
 }
 
 export const MATERIALS: Material[] = [
-  { id: 'absolute-black', name: 'Absolute Black', kind: 'Granite', swatch: '#26282b' },
-  { id: 'carrara', name: 'Carrara Marble', kind: 'Marble', swatch: '#e9e7e2' },
-  { id: 'quartz-white', name: 'Quartz White', kind: 'Quartz', swatch: '#f4f3ef' },
-  { id: 'steel-grey', name: 'Steel Grey', kind: 'Granite', swatch: '#5d6166' },
-  { id: 'taj-mahal', name: 'Taj Mahal', kind: 'Quartzite', swatch: '#e4d8c3' },
-  { id: 'calacatta-gold', name: 'Calacatta Gold', kind: 'Quartz', swatch: '#efe9de' },
+  { id: 'absolute-black', name: 'Absolute Black', kind: 'Granite', swatch: '#26282b', texture: 'speckled', pricePerSqft: 62 },
+  { id: 'carrara', name: 'Carrara Marble', kind: 'Marble', swatch: '#e9e7e2', texture: 'veined', pricePerSqft: 84 },
+  { id: 'quartz-white', name: 'Quartz White', kind: 'Quartz', swatch: '#f4f3ef', texture: 'solid', pricePerSqft: 70 },
+  { id: 'steel-grey', name: 'Steel Grey', kind: 'Granite', swatch: '#5d6166', texture: 'speckled', pricePerSqft: 52 },
+  { id: 'taj-mahal', name: 'Taj Mahal', kind: 'Quartzite', swatch: '#e4d8c3', texture: 'veined', pricePerSqft: 112 },
+  { id: 'calacatta-gold', name: 'Calacatta Gold', kind: 'Quartz', swatch: '#efe9de', texture: 'veined', pricePerSqft: 96 },
 ]
 
 export function getMaterial(id: string) {
@@ -91,8 +95,10 @@ export const CUTOUT_SPECS: Record<CutoutType, CutoutSpec> = {
 /** Center-to-center spacing between faucet holes. */
 export const FAUCET_SPACING = 4
 
-/** Mock limit for one slab. */
-export const SLAB = { length: 126, depth: 63 }
+export const SLAB_SIZES: Record<SlabSize, { length: number; depth: number; name: string }> = {
+  standard: { length: 126, depth: 63, name: 'Standard' },
+  jumbo: { length: 130, depth: 77, name: 'Jumbo' },
+}
 
 /** Minimum stone to leave around any cut-out. */
 export const MIN_STONE = 2

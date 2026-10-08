@@ -14,6 +14,7 @@ import { Separator } from '@/components/ui/separator'
 import { THICKNESS_LABEL, getMaterial } from '@/lib/catalog'
 import { boundingSize } from '@/lib/geometry'
 import type { Drawing, Quote, Units } from '@/lib/types'
+import { formatMoney } from '@/lib/pricing'
 import { formatLength } from '@/lib/units'
 import type { Issue } from '@/lib/validation'
 
@@ -24,10 +25,11 @@ interface ApprovalDialogProps {
   drawing: Drawing
   units: Units
   issues: Issue[]
+  total: number
   onConfirm: () => void
 }
 
-export function ApprovalDialog({ open, onOpenChange, quote, drawing, units, issues, onConfirm }: ApprovalDialogProps) {
+export function ApprovalDialog({ open, onOpenChange, quote, drawing, units, issues, total, onConfirm }: ApprovalDialogProps) {
   const [sent, setSent] = useState(false)
   const fmt = (n: number) => formatLength(n, units)
   const { w, h } = boundingSize(drawing)
@@ -41,6 +43,7 @@ export function ApprovalDialog({ open, onOpenChange, quote, drawing, units, issu
     ['Size', `${fmt(w)} × ${fmt(h)}${drawing.shape === 'l-shape' ? ' (L-shape)' : ''}`],
     ['Material', `${material.name}, ${THICKNESS_LABEL[drawing.thickness]}`],
     ['Cut-outs', drawing.cutouts.length ? String(drawing.cutouts.length) : 'None'],
+    ['Estimate', formatMoney(total)],
   ]
 
   return (
@@ -76,11 +79,11 @@ export function ApprovalDialog({ open, onOpenChange, quote, drawing, units, issu
               </DialogDescription>
             </DialogHeader>
 
-            <dl className="bg-muted/40 grid grid-cols-[auto_1fr] gap-x-6 gap-y-2.5 rounded-lg border p-4 text-sm">
+            <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2.5 rounded-2xl bg-neutral-50 p-5 text-sm">
               {rows.map(([k, v]) => (
                 <div key={k} className="contents">
                   <dt className="text-muted-foreground">{k}</dt>
-                  <dd className="font-medium">{v}</dd>
+                  <dd className="text-right font-medium">{v}</dd>
                 </div>
               ))}
             </dl>

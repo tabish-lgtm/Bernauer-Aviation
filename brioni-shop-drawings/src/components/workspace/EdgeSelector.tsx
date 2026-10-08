@@ -65,7 +65,7 @@ export function EdgeSelector({ shape, edges, onChange }: EdgeSelectorProps) {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="bg-muted/40 rounded-lg border p-2">
+      <div className="rounded-2xl bg-neutral-50 p-3">
         <svg viewBox="0 0 240 136" className="mx-auto block h-auto w-full max-w-[280px]" aria-label="Choose an edge">
           <polygon points={outline} className="fill-primary/[0.06]" />
           {segs.map((s) => {
@@ -136,7 +136,7 @@ export function EdgeSelector({ shape, edges, onChange }: EdgeSelectorProps) {
             <ToggleGroupItem
               key={p.id}
               value={p.id}
-              className="data-[state=on]:border-primary/50 data-[state=on]:bg-accent h-auto min-h-11 justify-start gap-3 rounded-md border px-3 py-2 text-left"
+              className="data-[state=on]:border-foreground text-foreground h-auto min-h-11 justify-start gap-3 rounded-xl border px-3 py-2 text-left hover:bg-neutral-50 data-[state=on]:bg-neutral-50 data-[state=on]:shadow-none"
             >
               <EdgeProfileIcon profile={p.id} />
               <span className="flex flex-col">

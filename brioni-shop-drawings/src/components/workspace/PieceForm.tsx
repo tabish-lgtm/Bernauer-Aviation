@@ -42,14 +42,14 @@ export function PieceForm({ drawing: d, units, onUnitsChange, onChange }: PieceF
             variant="outline"
             value={d.shape}
             onValueChange={(v) => v && onChange({ shape: v as Shape })}
-            className="w-full"
+            className="w-full rounded-3xl"
             aria-labelledby="shape-label"
           >
             {(['rectangle', 'l-shape'] as Shape[]).map((shape) => (
               <ToggleGroupItem
                 key={shape}
                 value={shape}
-                className="data-[state=on]:text-primary h-16 flex-col gap-1"
+                className="h-16 flex-col gap-1 rounded-2xl"
               >
                 <ShapeIcon shape={shape} />
                 <span className="text-xs font-medium">{shape === 'rectangle' ? 'Rectangle' : 'L-shape'}</span>
@@ -108,7 +108,7 @@ export function PieceForm({ drawing: d, units, onUnitsChange, onChange }: PieceF
         </div>
 
         {d.shape === 'l-shape' && (
-          <div className="bg-muted/40 grid grid-cols-2 gap-3 rounded-lg border p-3">
+          <div className="grid grid-cols-2 gap-3 rounded-2xl bg-neutral-50 p-4">
             <p className="text-muted-foreground col-span-2 text-xs">
               The return is the leg that turns toward you on the right.
             </p>
@@ -147,10 +147,10 @@ export function PieceForm({ drawing: d, units, onUnitsChange, onChange }: PieceF
             className="w-full"
             aria-labelledby="thickness-label"
           >
-            <ToggleGroupItem value="2cm" className="data-[state=on]:text-primary h-11">
+            <ToggleGroupItem value="2cm" className="h-10">
               2 cm <span className="text-muted-foreground font-normal">¾"</span>
             </ToggleGroupItem>
-            <ToggleGroupItem value="3cm" className="data-[state=on]:text-primary h-11">
+            <ToggleGroupItem value="3cm" className="h-10">
               3 cm <span className="text-muted-foreground font-normal">1¼"</span>
             </ToggleGroupItem>
           </ToggleGroup>

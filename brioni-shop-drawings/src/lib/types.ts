@@ -4,6 +4,7 @@ export type Thickness = '2cm' | '3cm'
 export type EdgeProfile = 'eased' | 'bevel' | 'bullnose' | 'ogee' | 'raw'
 export type CutoutType = 'undermount-sink' | 'dropin-sink' | 'cooktop' | 'faucet'
 export type QuoteStatus = 'draft' | 'ready' | 'approved'
+export type SlabSize = 'standard' | 'jumbo'
 
 /**
  * Edges are named as you look down at the counter standing at the front.
@@ -46,6 +47,7 @@ export interface Drawing {
   edges: Record<EdgeId, EdgeProfile>
   backsplash: { enabled: boolean; height: number }
   cutouts: Cutout[]
+  slabSize: SlabSize
 }
 
 export interface Quote {

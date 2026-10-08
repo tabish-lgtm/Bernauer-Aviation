@@ -91,12 +91,12 @@ export function CutoutDialog({ open, onOpenChange, drawing, units, editing, onSu
                 aria-checked={active}
                 onClick={() => pickType(type)}
                 className={cn(
-                  'focus-visible:ring-ring/50 flex cursor-pointer items-center gap-3 rounded-lg border p-3 text-left transition-colors outline-none focus-visible:ring-[3px]',
-                  active ? 'border-primary bg-accent text-accent-foreground' : 'hover:bg-muted/60',
+                  'flex cursor-pointer items-center gap-3 rounded-xl border p-3 text-left transition-colors outline-none focus-visible:ring-4 focus-visible:ring-neutral-900/10',
+                  active ? 'border-foreground bg-neutral-50' : 'hover:bg-neutral-50',
                   draft && !active && 'py-2.5',
                 )}
               >
-                <CutoutIcon type={type} className={active ? 'text-primary' : 'text-neutral-500'} />
+                <CutoutIcon type={type} className={active ? 'text-foreground' : 'text-neutral-400'} />
                 <span className="flex min-w-0 flex-col">
                   <span className="text-sm font-medium">{spec.name}</span>
                   {!draft && <span className="text-muted-foreground text-xs leading-snug">{spec.hint}</span>}

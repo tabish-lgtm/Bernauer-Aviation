@@ -26,6 +26,7 @@ export const MOCK_QUOTES: Quote[] = [
         left: 'raw',
       },
       backsplash: { enabled: true, height: 4 },
+      slabSize: 'standard',
       cutouts: [
         { id: 'c1', type: 'undermount-sink', width: 30, depth: 17, fromLeft: 18, fromFront: 3 },
         { id: 'c2', type: 'faucet', width: 1.375, depth: 1.375, fromLeft: 28.375, fromFront: 22, holeCount: 3 },
@@ -53,6 +54,7 @@ export const MOCK_QUOTES: Quote[] = [
       edges: allEdges('bullnose'),
       backsplash: { enabled: false, height: 4 },
       cutouts: [],
+      slabSize: 'standard',
     },
   },
   {

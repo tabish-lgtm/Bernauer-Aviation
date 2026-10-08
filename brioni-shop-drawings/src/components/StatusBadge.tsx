@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 
 const STATUS: Record<QuoteStatus, { label: string; className: string; dot: string }> = {
   draft: { label: 'Draft', className: 'bg-muted text-muted-foreground', dot: 'bg-neutral-400' },
-  ready: { label: 'Drawing ready', className: 'bg-accent text-accent-foreground', dot: 'bg-primary' },
+  ready: { label: 'Drawing ready', className: 'bg-blue-50 text-blue-700', dot: 'bg-blue-500' },
   approved: {
     label: 'Approved',
     className: 'bg-emerald-50 text-emerald-800',

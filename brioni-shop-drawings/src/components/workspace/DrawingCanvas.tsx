@@ -14,13 +14,15 @@ import {
 } from '@/lib/geometry'
 import type { Cutout, Drawing, Units } from '@/lib/types'
 import { formatLength, snapEighth } from '@/lib/units'
+import type { Seam } from '@/lib/slab'
 import type { Issue } from '@/lib/validation'
 
 /* Drawing palette. Kept as literal colors so the SVG prints exactly as seen. */
-const INK = '#1c2430'
-const MUTED = '#8a929c'
-const ACCENT = '#2d4a6d'
-const ACCENT_SOFT = '#e8eef5'
+const INK = '#18181b'
+const MUTED = '#a1a1aa'
+const ACCENT = '#4353c9'
+const ACCENT_SOFT = '#eef0fc'
+const SEAM = '#e11d48'
 const CAUTION = '#b45309'
 const PROBLEM = '#dc2626'
 const MONO = '"JetBrains Mono Variable", ui-monospace, monospace'
@@ -37,6 +39,7 @@ interface DrawingCanvasProps {
   quoteNumber: string
   date: string
   issues: Issue[]
+  seams?: Seam[]
   selectedId?: string | null
   onSelect?: (id: string | null) => void
   onMoveCutout?: (id: string, offsets: { fromLeft: number; fromFront: number }) => void
@@ -49,6 +52,7 @@ export function DrawingCanvas({
   quoteNumber,
   date,
   issues,
+  seams = [],
   selectedId = null,
   onSelect,
   onMoveCutout,
@@ -566,6 +570,33 @@ export function DrawingCanvas({
         )
       })}
 
+      {/* Seams, placed by the slab layout */}
+      {seams.map((seam, i) => {
+        const x1 = X(seam.a[0])
+        const y1 = Y(seam.a[1])
+        const x2 = X(seam.b[0])
+        const y2 = Y(seam.b[1])
+        return (
+          <g key={`seam-${i}`} pointerEvents="none">
+            <line x1={x1} y1={y1 - 6} x2={x2} y2={y2 + 6} stroke={SEAM} strokeWidth={1.5} strokeDasharray="7 4" />
+            <rect x={x1 - 21} y={(y1 + y2) / 2 - 8} width={42} height={16} rx={8} fill={SEAM} />
+            <text
+              x={x1}
+              y={(y1 + y2) / 2}
+              textAnchor="middle"
+              dominantBaseline="central"
+              fontFamily={SANS}
+              fontSize={9}
+              fontWeight={700}
+              letterSpacing={0.8}
+              fill="#fff"
+            >
+              SEAM
+            </text>
+          </g>
+        )
+      })}
+
       <TitleBlock
         d={d}
         quoteNumber={quoteNumber}
@@ -676,14 +707,14 @@ function TitleBlock({
   let cursor = x0
   return (
     <g fontFamily={SANS}>
-      <rect x={x0} y={TITLE_Y} width={width} height={TITLE_H} rx={6} fill="#fff" stroke={INK} strokeWidth={1} />
+      <rect x={x0} y={TITLE_Y} width={width} height={TITLE_H} rx={10} fill="#fff" stroke="#e4e4e7" strokeWidth={1} />
       {cells.map((cell, i) => {
         const cx = cursor
         const cw = width * cell.w
         cursor += cw
         return (
           <g key={cell.label}>
-            {i > 0 && <line x1={cx} y1={TITLE_Y} x2={cx} y2={TITLE_Y + TITLE_H} stroke={INK} strokeOpacity={0.2} />}
+            {i > 0 && <line x1={cx} y1={TITLE_Y + 12} x2={cx} y2={TITLE_Y + TITLE_H - 12} stroke="#e4e4e7" />}
             <text x={cx + 14} y={TITLE_Y + 22} fontSize={9} fontWeight={600} letterSpacing={1} fill={MUTED}>
               {cell.label.toUpperCase()}
             </text>

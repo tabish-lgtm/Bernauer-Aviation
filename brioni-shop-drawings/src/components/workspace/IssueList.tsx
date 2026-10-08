@@ -35,7 +35,7 @@ export function IssueList({ issues, onSelectCutout, showAllClear = false, classN
               type={clickable ? 'button' : undefined}
               onClick={clickable ? () => onSelectCutout?.(issue.cutoutIds[0]) : undefined}
               className={cn(
-                'flex w-full items-start gap-2.5 rounded-lg border px-3 py-2.5 text-left text-sm',
+                'flex w-full items-start gap-2.5 rounded-xl border px-3.5 py-3 text-left text-sm',
                 problem
                   ? 'border-red-200 bg-red-50 text-red-900'
                   : 'border-amber-200 bg-warning-soft text-amber-950',

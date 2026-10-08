@@ -22,6 +22,7 @@ export function newDrawing(materialId: string): Drawing {
     edges: allEdges('eased'),
     backsplash: { enabled: false, height: 4 },
     cutouts: [],
+    slabSize: 'standard',
   }
 }
 
