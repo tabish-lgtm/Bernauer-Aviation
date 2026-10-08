@@ -14,7 +14,11 @@ cd brioni-shop-drawings
 npm install
 npm run dev        # http://localhost:5173
 npm run build      # type-check + production build
+npm run build:single   # one self-contained file: dist-single/index.html
 ```
+
+`build:single` inlines all the JS, CSS and fonts into a single HTML file
+(~900 KB) that you can email or open straight from disk. It works offline.
 
 ## Stack
 
